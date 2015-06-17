@@ -5,8 +5,16 @@ subprojects {
 	
 	sourceCompatibility = 1.8
 	targetCompatibility = 1.8
+
+	repositories {
+		mavenCentral()
+	}
 }
 
-repositories {
-	mavenCentral()
+task wrapper(type: Wrapper) {
+	gradleVersion = '2.3'
+}
+
+task hello {
+	println("Hello world")
 }

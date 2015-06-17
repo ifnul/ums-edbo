@@ -1,0 +1,21 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.4.RELEASE")
+    }
+}
+
+apply plugin: 'spring-boot'
+
+jar {
+    baseName = 'ums-edbo'
+    version =  '0.1.0'
+}
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web:1.2.4.RELEASE')
+    compile('org.springframework.boot:spring-boot-starter-actuator:1.2.4.RELEASE')
+    testCompile('junit:junit:4.12')
+}
