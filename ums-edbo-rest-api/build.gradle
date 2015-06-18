@@ -17,5 +17,4 @@ jar {
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web:1.2.4.RELEASE')
     compile('org.springframework.boot:spring-boot-starter-actuator:1.2.4.RELEASE')
-    testCompile('junit:junit:4.12')
 }
