@@ -1,4 +1,4 @@
-package org.lnu.ums.controller;
+package org.lnu.ums.rest.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
