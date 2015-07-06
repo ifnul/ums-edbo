@@ -3,7 +3,7 @@ package org.lnu.ums;
 import org.lnu.ums.config.ControllerConfig;
 import org.lnu.ums.config.DaoConfig;
 import org.lnu.ums.config.FacadeConfig;
-import org.lnu.ums.service.config.ServiceConfig;
+import org.lnu.ums.config.ServiceConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
