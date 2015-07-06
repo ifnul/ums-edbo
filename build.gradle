@@ -46,6 +46,7 @@ project(':ums-edbo-facade') {
 	dependencies {
 		compile project(':ums-edbo-service')
 		compile project(':ums-edbo-resource')
+
 	}
 }
 
@@ -65,5 +66,8 @@ project(':ums-edbo-dao') {
 	dependencies {
 		compile project(':ums-edbo-model')
 		compile project(':ums-edbo-common')
+
+        compile project(':ums-edbo-guides')
+        compile project(':ums-edbo-person')
 	}
 }
