@@ -1,6 +1,6 @@
 package org.lnu.ums.service.language;
 
-import org.is.lnu.edbo.model.authentification.EdboAuthentification;
+import org.lnu.ums.model.authentification.Authentication;
 
 /**
  * Interface for Languages in EDBO.
@@ -14,6 +14,6 @@ public interface EdboLanguageService {
 	 * @param authentification
 	 * @return default language id.
 	 */
-	Integer getDefaultLanguage(EdboAuthentification authentification);
+	Integer getDefaultLanguage(Authentication authentification);
 
 }

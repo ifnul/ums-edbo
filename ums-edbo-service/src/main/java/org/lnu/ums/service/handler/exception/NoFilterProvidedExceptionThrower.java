@@ -1,6 +1,6 @@
 package org.lnu.ums.service.handler.exception;
 
-import org.is.lnu.edbo.exception.NoFilterProvidedException;
+import org.lnu.ums.service.exception.NoFilterProvidedException;
 import org.springframework.stereotype.Component;
 import ua.edboservice.DLastError;
 

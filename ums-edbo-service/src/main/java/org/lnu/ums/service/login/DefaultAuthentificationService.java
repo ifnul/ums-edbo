@@ -1,5 +1,6 @@
 package org.lnu.ums.service.login;
 
+import org.lnu.ums.model.authentification.Authentication;
 import org.lnu.ums.service.BaseEdboService;
 import ua.edboservice.EDBOGuidesSoap;
 
@@ -11,18 +12,18 @@ import ua.edboservice.EDBOGuidesSoap;
 public class DefaultAuthentificationService extends BaseEdboService<EDBOGuidesSoap> implements AuthentificationService {
 
 	@Override
-	public EdboAuthentification login(final EdboAuthentification auth) {
+	public Authentication login(final Authentication auth) {
 		EDBOGuidesSoap client = getServiceManager().getWebServiceClient();
 		
 		String sessionGuid = client.login(auth.getLogin(), auth.getPassword(), getClearPreviousSession(), getApplicationKey());
 		String login = auth.getLogin();
 		String password = auth.getPassword();
 		
-		return new EdboAuthentification(login, password, getApplicationKey(), getClearPreviousSession(), sessionGuid);
+		return new Authentication(login, password, getApplicationKey(), getClearPreviousSession(), sessionGuid);
 	}
 
 	@Override
-	public void logout(final EdboAuthentification authentification) {
+	public void logout(final Authentication authentification) {
 		EDBOGuidesSoap client = getServiceManager().getWebServiceClient();
 		client.logout(authentification.getSessionGUID());
 	}
