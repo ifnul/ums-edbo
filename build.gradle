@@ -1,8 +1,16 @@
+project.ext.domainName='university'
+
+allprojects {
+	apply plugin: 'java'
+	sourceCompatibility = 1.8
+	targetCompatibility = 1.8
+}
+
 subprojects {
 	apply plugin: 'java'
 	apply plugin: 'eclipse'
 	apply plugin: 'idea'
-	
+
 	sourceCompatibility = 1.8
 	targetCompatibility = 1.8
 
@@ -11,8 +19,15 @@ subprojects {
 	}
 
 	dependencies {
-		testCompile('junit:junit:4.12')
-		testCompile('org.mockito:mockito-all:1.10.19')
+		compile 'org.springframework.boot:spring-boot-starter-web:1.2.4.RELEASE'
+		compile 'commons-beanutils:commons-beanutils:1.9.2'
+		compile 'org.apache.commons:commons-lang3:3.4'
+		compile 'org.springframework.security:spring-security-core:4.0.1.RELEASE'
+		compile 'org.springframework.security:spring-security-config:4.0.1.RELEASE'
+		compile 'org.springframework.security:spring-security-web:4.0.1.RELEASE'
+
+		testCompile 'junit:junit:4.12'
+		testCompile 'org.mockito:mockito-all:1.10.19'
 	}
 }
 
@@ -20,6 +35,35 @@ task wrapper(type: Wrapper) {
 	gradleVersion = '2.3'
 }
 
-task hello {
-	println("Hello world")
+//Declaring dependencies between submodules
+project(':ums-edbo-rest-api') {
+	dependencies {
+		compile project(':ums-edbo-facade')
+	}
+}
+
+project(':ums-edbo-facade') {
+	dependencies {
+		compile project(':ums-edbo-service')
+		compile project(':ums-edbo-resource')
+	}
+}
+
+project(':ums-edbo-resource') {
+	dependencies {
+		compile project(':ums-edbo-common')
+	}
+}
+
+project(':ums-edbo-service') {
+	dependencies {
+		compile project(':ums-edbo-dao')
+	}
+}
+
+project(':ums-edbo-dao') {
+	dependencies {
+		compile project(':ums-edbo-model')
+		compile project(':ums-edbo-common')
+	}
 }
