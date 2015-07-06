@@ -8,13 +8,24 @@ buildscript {
 }
 
 apply plugin: 'spring-boot'
+apply plugin: 'war'
+
+war {
+    baseName = 'ums-edbo'
+    version =  '0.1.0'
+}
 
 jar {
-    baseName = 'ums-edbo'
+    baseName = 'ums-edbo-rest-api'
     version =  '0.1.0'
 }
 
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web:1.2.4.RELEASE')
-    compile('org.springframework.boot:spring-boot-starter-actuator:1.2.4.RELEASE')
+    compile 'org.springframework.boot:spring-boot-starter-actuator:1.2.4.RELEASE'
+    compile 'javax.servlet:javax.servlet-api:3.1.0'
+}
+
+processResources {
+    expand(project.properties)
 }
