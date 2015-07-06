@@ -8,7 +8,7 @@ import java.io.Serializable;
  * @author ivanursul
  *
  */
-public class EdboPersonFindRequest implements Serializable {
+public class PersonFindRequest implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@NotNull(message = "Null is not allowed")
@@ -117,7 +117,7 @@ public class EdboPersonFindRequest implements Serializable {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		EdboPersonFindRequest other = (EdboPersonFindRequest) obj;
+		PersonFindRequest other = (PersonFindRequest) obj;
 		if (documentNumber == null) {
 			if (other.documentNumber != null) {
 				return false;

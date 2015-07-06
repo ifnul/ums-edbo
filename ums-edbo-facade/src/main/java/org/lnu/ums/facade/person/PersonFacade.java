@@ -1,6 +1,6 @@
 package org.lnu.ums.facade.person;
 
-import org.lnu.ums.resource.person.EdboPersonFindRequest;
+import org.lnu.ums.resource.person.PersonFindRequest;
 import org.lnu.ums.resource.person.EdboPersonResource;
 import org.lnu.ums.resource.person.PersonResource;
 
@@ -18,7 +18,7 @@ public interface PersonFacade {
 	 * @param request
 	 * @return list of persons.
 	 */
-	List<EdboPersonResource> findPersons(EdboPersonFindRequest request);
+	List<EdboPersonResource> findPersons(PersonFindRequest request);
 
 	/**
 	 * Method for sending applicant to edbo.

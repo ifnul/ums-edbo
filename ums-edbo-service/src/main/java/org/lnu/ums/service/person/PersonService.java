@@ -13,7 +13,7 @@ import ua.edboservice.PersonsFind;
  * @author ivanursul
  *
  */
-public interface EdboPersonService {
+public interface PersonService {
 
 	/**
 	 * Method for finding person by specific parameters.

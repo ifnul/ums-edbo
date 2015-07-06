@@ -1,10 +1,10 @@
 package org.lnu.ums.facade.person;
 
 import org.lnu.ums.converter.Converter;
-import org.lnu.ums.resource.person.EdboPersonFindRequest;
+import org.lnu.ums.resource.person.PersonFindRequest;
 import org.lnu.ums.resource.person.EdboPersonResource;
 import org.lnu.ums.resource.person.PersonResource;
-import org.lnu.ums.service.person.EdboPersonService;
+import org.lnu.ums.service.person.PersonService;
 import ua.edboservice.ArrayOfDPersonsFind;
 import ua.edboservice.PersonsFind;
 
@@ -17,13 +17,13 @@ import java.util.List;
  */
 public class DefultPersonFacade implements PersonFacade {
 
-	private Converter<EdboPersonFindRequest, PersonsFind> personFindResourceConverter;
+	private Converter<PersonFindRequest, PersonsFind> personFindResourceConverter;
 	private Converter<ArrayOfDPersonsFind, List<EdboPersonResource>> arrayOfDPersonFindResourceConverter;
 	
-	private EdboPersonService service;
+	private PersonService service;
 
 	@Override
-	public List<EdboPersonResource> findPersons(final EdboPersonFindRequest request) {
+	public List<EdboPersonResource> findPersons(final PersonFindRequest request) {
 		PersonsFind personsFind = personFindResourceConverter.convert(request);
 		ArrayOfDPersonsFind persons = service.findPerson(personsFind);
 		

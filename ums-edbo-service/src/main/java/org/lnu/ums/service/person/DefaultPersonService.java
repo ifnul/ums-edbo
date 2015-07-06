@@ -16,8 +16,8 @@ import ua.edboservice.PersonsFind;
  * @author ivanursul
  *
  */
-public class DefaultEdboPersonService extends BaseEdboService<EDBOPersonSoap> implements EdboPersonService {
-	private static final Logger LOG = LoggerFactory.getLogger(DefaultEdboPersonService.class);
+public class DefaultPersonService extends BaseEdboService<EDBOPersonSoap> implements PersonService {
+	private static final Logger LOG = LoggerFactory.getLogger(DefaultPersonService.class);
 	
 	private ExceptionHandler exceptionHandler;
 	
