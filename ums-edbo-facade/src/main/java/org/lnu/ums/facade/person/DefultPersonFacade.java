@@ -31,7 +31,8 @@ public class DefultPersonFacade implements PersonFacade {
 	}
 
 	@Override
-	public PersonResource createPerson(final Long entrantId, final Boolean auto) {
-	    return null;
-    }
+	public PersonResource createPerson(final EdboPersonResource resource, final Boolean auto) {
+		return null;
+	}
+
 }

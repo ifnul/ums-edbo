@@ -107,6 +107,9 @@ public class DefaultPersonService extends BaseEdboService<EDBOPersonSoap> implem
 
 	@Override
 	public ArrayOfDPersonAddRet createApplicantAutomatically(final PersonEntrantAutoAdd person) {
+		LOG.info("Creating new person automatically");
+		EDBOPersonSoap client = getServiceManager().getWebServiceClient();
+
 		return null;
 	}
 

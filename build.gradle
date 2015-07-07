@@ -71,3 +71,15 @@ project(':ums-edbo-dao') {
         compile project(':ums-edbo-person')
 	}
 }
+
+project(':ums-edbo-guides') {
+	dependencies {
+		compile project(':ums-edbo-common')
+	}
+}
+
+project(':ums-edbo-person') {
+	dependencies {
+		compile project(':ums-edbo-common')
+	}
+}

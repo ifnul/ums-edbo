@@ -21,11 +21,10 @@ public interface PersonFacade {
 	List<EdboPersonResource> findPersons(PersonFindRequest request);
 
 	/**
-	 * Method for sending applicant to edbo.
-	 * @param applicantId
-	 * @param auto
-	 * @return person resource with generated uid and utid.
+	 * Method for creating applicant.
+	 * @param resource resource.
+	 * @return person resource.
 	 */
-	PersonResource createPerson(Long applicantId, Boolean auto);
+	PersonResource createPerson(EdboPersonResource resource, Boolean auto);
 	
 }
