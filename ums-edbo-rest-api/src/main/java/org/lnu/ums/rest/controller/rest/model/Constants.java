@@ -5,6 +5,6 @@ package org.lnu.ums.rest.controller.rest.model;
  */
 public class Constants {
 
-    public static final String API_URL = "/api"
+    public static final String API_URL = "/api";
 
 }

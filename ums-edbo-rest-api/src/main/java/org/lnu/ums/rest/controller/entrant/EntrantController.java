@@ -16,7 +16,7 @@ public class EntrantController extends BaseController {
 
     @RequestMapping(method = RequestMethod.POST)
     public String createEntrant() {
-        return null;
+        return "Hello World";
     }
 
 }
