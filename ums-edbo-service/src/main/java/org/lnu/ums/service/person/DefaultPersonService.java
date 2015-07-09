@@ -9,7 +9,7 @@ import ua.edboservice.ArrayOfDPersonsFind;
 import ua.edboservice.EDBOPersonSoap;
 import ua.edboservice.PersonEntrantAdd;
 import ua.edboservice.PersonEntrantAutoAdd;
-import ua.edboservice.PersonsFind;
+import ua.edboservice.EntrantFindContext;
 
 /**
  * Default implementation of EdboPersonService.
@@ -22,7 +22,7 @@ public class DefaultPersonService extends BaseEdboService<EDBOPersonSoap> implem
 	private ExceptionHandler exceptionHandler;
 	
 	@Override
-	public ArrayOfDPersonsFind findPerson(final PersonsFind request) {
+	public ArrayOfDPersonsFind findEntrants(final EntrantFindContext request) {
 		LOG.info("Starting to search person by method personsFind");
 		EDBOPersonSoap client = getServiceManager().getWebServiceClient();
 		

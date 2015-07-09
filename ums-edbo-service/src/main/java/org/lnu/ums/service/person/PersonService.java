@@ -4,7 +4,7 @@ import ua.edboservice.ArrayOfDPersonAddRet;
 import ua.edboservice.ArrayOfDPersonsFind;
 import ua.edboservice.PersonEntrantAdd;
 import ua.edboservice.PersonEntrantAutoAdd;
-import ua.edboservice.PersonsFind;
+import ua.edboservice.EntrantFindContext;
 
 /**
  * Interface, that describes methods for finding person by specific parameters.
@@ -20,7 +20,7 @@ public interface PersonService {
 	 * @param personFind
 	 * @return ArrayOfDPersonFind element.
 	 */
-	ArrayOfDPersonsFind findPerson(PersonsFind personFind);
+	ArrayOfDPersonsFind findEntrants(EntrantFindContext personFind);
 
 	/**
 	 * Method for manual creation of person.
