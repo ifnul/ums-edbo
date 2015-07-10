@@ -26,7 +26,7 @@ public class View {
 			parameters = {
 						@Parameter(
 							name = "enumClassName", 
-							value = "org.lnu.is.org.lnu.is.domain.common.RowStatus"
+							value = "org.lnu.is.domain.common.RowStatus"
 								)
 						})
 		@Column(name = "status", columnDefinition = "q_en_row_status")

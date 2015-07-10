@@ -29,12 +29,7 @@ public abstract class Model implements Serializable {
 	private Long id;
 
 	@Type(type = "org.lnu.is.dao.persistence.enumtype.PGEnumUserType",
-		parameters = {
-					@Parameter(
-						name = "enumClassName", 
-						value = "org.lnu.is.org.lnu.is.domain.common.RowStatus"
-							)
-					})
+		parameters = {@Parameter(	name = "enumClassName", value = "org.lnu.is.domain.common.RowStatus")})
 	@Column(name = "status", columnDefinition = "q_en_row_status")
 	@Enumerated(EnumType.STRING)
 	private RowStatus status;

@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @ComponentScan("org.lnu.ums.dao")
 @PropertySource("classpath:application.properties")
-@EnableJpaRepositories("org.lnu.ums.dao.*")
+@EnableJpaRepositories("org.lnu.ums.dao")
 @EntityScan(basePackages = {"org.lnu.is.domain"})
 @EnableAutoConfiguration
 @EnableTransactionManagement

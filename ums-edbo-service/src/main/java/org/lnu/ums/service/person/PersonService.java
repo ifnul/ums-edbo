@@ -1,10 +1,8 @@
 package org.lnu.ums.service.person;
 
 import ua.edboservice.ArrayOfDPersonAddRet;
-import ua.edboservice.ArrayOfDPersonsFind;
 import ua.edboservice.PersonEntrantAdd;
 import ua.edboservice.PersonEntrantAutoAdd;
-import ua.edboservice.EntrantFindContext;
 
 /**
  * Interface, that describes methods for finding person by specific parameters.
@@ -14,13 +12,6 @@ import ua.edboservice.EntrantFindContext;
  *
  */
 public interface PersonService {
-
-	/**
-	 * Method for finding person by specific parameters.
-	 * @param personFind
-	 * @return ArrayOfDPersonFind element.
-	 */
-	ArrayOfDPersonsFind findEntrants(EntrantFindContext personFind);
 
 	/**
 	 * Method for manual creation of person.
