@@ -17,62 +17,62 @@ public class DefaultPersonService extends BaseEdboService<EDBOPersonSoap> implem
     private ExceptionHandler exceptionHandler;
 
     @Override
-    public ArrayOfDPersonAddRet createApplicantManually(final PersonEntrantAdd request) {
+    public ArrayOfDPersonAddRet createApplicantManually(final PersonEntrantAdd person) {
         LOG.info("Creating new person manually");
 
         EDBOPersonSoap client = getServiceManager().getWebServiceClient();
 
-        ArrayOfDPersonAddRet response = client.personEntrantAdd(request.getSessionGUID(),
-                request.getIdLanguage(),
-                request.getResident(),
-                request.getBirthday(),
-                request.getIdPersonSex(),
-                request.getFirstName(),
-                request.getMiddleName(),
-                request.getLastName(),
-                request.getKOATUUCode(),
-                request.getIdStreetType(),
-                request.getAdress(),
-                request.getHomeNumber(),
-                request.getEntrantDocumentSeries(),
-                request.getEntrantDocumentNumber(),
-                request.getEntrantDocumentDate(),
-                request.getEntrantDocumentValue(),
-                request.getPasportSeries(),
-                request.getPasportNumber(),
-                request.getPasportIssued(),
-                request.getPasportDate(),
-                request.getBirthCertificateSeries(),
-                request.getBirthCertificateNumber(),
-                request.getBirthCertificateDate(),
-                request.getKodeSchool(),
-                request.getPhone(),
-                request.getMobile(),
-                request.getEmail(),
-                request.getSkype(),
-                request.getICQ(),
-                request.getIsForeinghEntrantDocumet(),
-                request.getIsNotCheckAttestat(),
-                request.getIdEntrantDocumnetType(),
-                request.getEntrantDocumnetUniversityKode(),
-                request.getFather(),
-                request.getFather(),
-                request.getFatherPhones(),
-                request.getMotherPhones(),
-                request.getPostIndex(),
-                request.getBirthplace(),
-                request.getLanguagesAreStudied(),
-                request.getEntrantDocumentIssued(),
-                request.getIdEntrantDocumentsAwardType(),
-                request.getAllowProcessedPersonalData(),
-                request.getPosvidkaSeries(),
-                request.getPosvidkaNumber(),
-                request.getPosvidkaIssued(),
-                request.getPosvidkaDate(),
-                request.getIdCountry());
+        ArrayOfDPersonAddRet response = client.personEntrantAdd(person.getSessionGUID(),
+                person.getIdLanguage(),
+                person.getResident(),
+                person.getBirthday(),
+                person.getIdPersonSex(),
+                person.getFirstName(),
+                person.getMiddleName(),
+                person.getLastName(),
+                person.getKOATUUCode(),
+                person.getIdStreetType(),
+                person.getAdress(),
+                person.getHomeNumber(),
+                person.getEntrantDocumentSeries(),
+                person.getEntrantDocumentNumber(),
+                person.getEntrantDocumentDate(),
+                person.getEntrantDocumentValue(),
+                person.getPasportSeries(),
+                person.getPasportNumber(),
+                person.getPasportIssued(),
+                person.getPasportDate(),
+                person.getBirthCertificateSeries(),
+                person.getBirthCertificateNumber(),
+                person.getBirthCertificateDate(),
+                person.getKodeSchool(),
+                person.getPhone(),
+                person.getMobile(),
+                person.getEmail(),
+                person.getSkype(),
+                person.getICQ(),
+                person.getIsForeinghEntrantDocumet(),
+                person.getIsNotCheckAttestat(),
+                person.getIdEntrantDocumnetType(),
+                person.getEntrantDocumnetUniversityKode(),
+                person.getFather(),
+                person.getFather(),
+                person.getFatherPhones(),
+                person.getMotherPhones(),
+                person.getPostIndex(),
+                person.getBirthplace(),
+                person.getLanguagesAreStudied(),
+                person.getEntrantDocumentIssued(),
+                person.getIdEntrantDocumentsAwardType(),
+                person.getAllowProcessedPersonalData(),
+                person.getPosvidkaSeries(),
+                person.getPosvidkaNumber(),
+                person.getPosvidkaIssued(),
+                person.getPosvidkaDate(),
+                person.getIdCountry());
 
         if (response == null) {
-            exceptionHandler.handle(request.getSessionGUID());
+            exceptionHandler.handle(person.getSessionGUID());
         }
 
         return response;
@@ -83,7 +83,39 @@ public class DefaultPersonService extends BaseEdboService<EDBOPersonSoap> implem
         LOG.info("Creating new person automatically");
         EDBOPersonSoap client = getServiceManager().getWebServiceClient();
 
-        return null;
+        ArrayOfDPersonAddRet arrayOfDPersonAddRet = client.personEntrantAutoAdd(person.getSessionGUID(),
+                person.getIdLanguage(),
+                person.getIdPersonSex(),
+                person.getZNONumbers(),
+                person.getZNODateGet(),
+                person.getZNOPin(),
+                person.getAttestatSeries(),
+                person.getAttestatNumber(),
+                person.getAttestatDate(),
+                person.getAttestatValue(),
+                person.getPasportSeries(),
+                person.getPasportNumber(),
+                person.getPasportIssued(),
+                person.getPasportDate(),
+                person.getBirthCertificateSeries(),
+                person.getBirthCertificateNumber(),
+                person.getBirthCertificateDate(),
+                person.getKodeSchool(),
+                person.getPhone(),
+                person.getMobile(),
+                person.getEmail(),
+                person.getSkype(),
+                person.getICQ(),
+                person.getFather(),
+                person.getMother(),
+                person.getFatherPhones(),
+                person.getMotherPhones(),
+                person.getBirthplace(),
+                person.getLanguagesAreStudied(),
+                person.getIdEntrantDocumentsAwardType(),
+                person.getAllowProcessedPersonalData());
+
+        return arrayOfDPersonAddRet;
     }
 
     public void setExceptionHandler(final ExceptionHandler exceptionHandler) {
