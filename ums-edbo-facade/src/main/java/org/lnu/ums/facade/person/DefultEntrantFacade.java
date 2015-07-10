@@ -32,6 +32,7 @@ public class DefultEntrantFacade implements EntrantFacade {
 	@Resource(name = "entrantConverter")
     private Converter<ArrayOfDPersonAddRet, PersonResource> entrantConverter;
 
+	@Resource(name = "personService")
 	private PersonService service;
 
 	@Override
