@@ -46,7 +46,6 @@ project(':ums-edbo-facade') {
 	dependencies {
 		compile project(':ums-edbo-service')
 		compile project(':ums-edbo-resource')
-
 	}
 }
 
@@ -75,11 +74,20 @@ project(':ums-edbo-dao') {
 project(':ums-edbo-guides') {
 	dependencies {
 		compile project(':ums-edbo-common')
+		compile 'org.springframework:spring-context:4.1.6.RELEASE'
 	}
 }
 
 project(':ums-edbo-person') {
 	dependencies {
 		compile project(':ums-edbo-common')
+
+		compile 'org.springframework:spring-context:4.1.6.RELEASE'
+	}
+}
+
+project(':ums-edbo-common') {
+	dependencies {
+		compile 'org.springframework.boot:spring-boot-starter-web:1.2.4.RELEASE'
 	}
 }

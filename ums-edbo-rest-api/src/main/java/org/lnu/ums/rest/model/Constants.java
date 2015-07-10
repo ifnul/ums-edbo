@@ -1,4 +1,4 @@
-package org.lnu.ums.rest.controller.rest.model;
+package org.lnu.ums.rest.model;
 
 /**
  * Created by ivanursul on 7/9/15.

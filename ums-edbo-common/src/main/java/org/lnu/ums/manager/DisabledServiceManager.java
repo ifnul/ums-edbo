@@ -1,7 +1,6 @@
 package org.lnu.ums.manager;
 
 import org.lnu.ums.exception.DisabledEDBOException;
-import org.springframework.stereotype.Component;
 
 /**
  * Web Service Manager for disabled contexts.
@@ -10,7 +9,7 @@ import org.springframework.stereotype.Component;
  *
  * @param <WEBSERVICE> Web Service.
  */
-@Component("disabledWebServiceManager")
+//@Component("disabledWebServiceManager")
 public class DisabledServiceManager<WEBSERVICE> implements ServiceManager<WEBSERVICE> {
 
 	@Override

@@ -4,7 +4,7 @@ import org.lnu.ums.facade.person.EntrantFacade;
 import org.lnu.ums.resource.person.EdboPersonResource;
 import org.lnu.ums.resource.person.PersonResource;
 import org.lnu.ums.rest.controller.BaseController;
-import org.lnu.ums.rest.controller.rest.model.Constants;
+import org.lnu.ums.rest.model.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;

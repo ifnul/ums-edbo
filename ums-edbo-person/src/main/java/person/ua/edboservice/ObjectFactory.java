@@ -2358,11 +2358,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link EntrantFindContext }
+     * Create an instance of {@link PersonsFind }
      * 
      */
-    public EntrantFindContext createPersonsFind() {
-        return new EntrantFindContext();
+    public PersonsFind createPersonsFind() {
+        return new PersonsFind();
     }
 
     /**
