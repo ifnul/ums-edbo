@@ -25,6 +25,9 @@ public class DefultEntrantFacade implements EntrantFacade {
 	private Converter<EntrantRequest, EntrantFindContext> entrantFindConverter;
 	private Converter<ArrayOfDPersonsFind, List<EdboPersonResource>> entrantsPersonResourceConverter;
 
+	private Converter<EdboPersonResource, PersonEntrantAutoAdd> personEntrantAutoAddConverter;
+	private Converter<EdboPersonResource, PersonEntrantAdd> personEntrantAddConverter;
+
     private Converter<ArrayOfDPersonAddRet, PersonResource> entrantConverter;
 
 	private PersonService service;
@@ -43,10 +46,10 @@ public class DefultEntrantFacade implements EntrantFacade {
         ArrayOfDPersonAddRet entrant;
 
         if (autoCreate) {
-            PersonEntrantAutoAdd personEntrantAutoAdd = null;
+            PersonEntrantAutoAdd personEntrantAutoAdd = personEntrantAutoAddConverter.convert(resource);
             entrant = service.createApplicantAutomatically(personEntrantAutoAdd);
         } else {
-            PersonEntrantAdd personEntrantAdd = null;
+            PersonEntrantAdd personEntrantAdd = personEntrantAddConverter.convert(resource);
             entrant = service.createApplicantManually(personEntrantAdd);
         }
 
