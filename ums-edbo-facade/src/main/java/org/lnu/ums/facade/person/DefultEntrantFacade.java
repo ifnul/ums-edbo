@@ -12,6 +12,7 @@ import ua.edboservice.EntrantFindContext;
 import ua.edboservice.PersonEntrantAdd;
 import ua.edboservice.PersonEntrantAutoAdd;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -22,23 +23,16 @@ import java.util.List;
 @Component("entrantFacade")
 public class DefultEntrantFacade implements EntrantFacade {
 
-	private Converter<EntrantRequest, EntrantFindContext> entrantFindConverter;
-	private Converter<ArrayOfDPersonsFind, List<EdboPersonResource>> entrantsPersonResourceConverter;
-
+	@Resource(name = "personEntrantAutoAddConverter")
 	private Converter<EdboPersonResource, PersonEntrantAutoAdd> personEntrantAutoAddConverter;
+
+	@Resource(name = "personEntrantAddConverter")
 	private Converter<EdboPersonResource, PersonEntrantAdd> personEntrantAddConverter;
 
+	@Resource(name = "entrantConverter")
     private Converter<ArrayOfDPersonAddRet, PersonResource> entrantConverter;
 
 	private PersonService service;
-
-	@Override
-	public List<EdboPersonResource> findEntrants(final EntrantRequest request) {
-		EntrantFindContext personsFind = entrantFindConverter.convert(request);
-		ArrayOfDPersonsFind entrants = service.findEntrants(personsFind);
-		
-		return entrantsPersonResourceConverter.convert(entrants);
-	}
 
 	@Override
 	public PersonResource createEntrant(final EdboPersonResource resource) {
@@ -54,6 +48,38 @@ public class DefultEntrantFacade implements EntrantFacade {
         }
 
 		return entrantConverter.convert(entrant);
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	private Converter<EntrantRequest, EntrantFindContext> entrantFindConverter;
+	private Converter<ArrayOfDPersonsFind, List<EdboPersonResource>> entrantsPersonResourceConverter;
+	@Override
+	public List<EdboPersonResource> findEntrants(final EntrantRequest request) {
+/*		EntrantFindContext personsFind = entrantFindConverter.convert(request);
+		ArrayOfDPersonsFind entrants = service.findEntrants(personsFind);
+
+		return entrantsPersonResourceConverter.convert(entrants);*/
+		return null;
 	}
 
 }

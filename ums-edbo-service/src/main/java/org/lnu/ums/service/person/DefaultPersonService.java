@@ -4,6 +4,7 @@ import org.lnu.ums.service.BaseEdboService;
 import org.lnu.ums.service.handler.ExceptionHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 import ua.edboservice.ArrayOfDPersonAddRet;
 import ua.edboservice.ArrayOfDPersonsFind;
 import ua.edboservice.EDBOPersonSoap;
@@ -11,11 +12,7 @@ import ua.edboservice.PersonEntrantAdd;
 import ua.edboservice.PersonEntrantAutoAdd;
 import ua.edboservice.EntrantFindContext;
 
-/**
- * Default implementation of EdboPersonService.
- * @author ivanursul
- *
- */
+@Component("personService")
 public class DefaultPersonService extends BaseEdboService<EDBOPersonSoap> implements PersonService {
 	private static final Logger LOG = LoggerFactory.getLogger(DefaultPersonService.class);
 	
@@ -24,6 +21,7 @@ public class DefaultPersonService extends BaseEdboService<EDBOPersonSoap> implem
 	@Override
 	public ArrayOfDPersonsFind findEntrants(final EntrantFindContext request) {
 		LOG.info("Starting to search person by method personsFind");
+
 		EDBOPersonSoap client = getServiceManager().getWebServiceClient();
 		
 		ArrayOfDPersonsFind response = client.personsFind(request.getSessionGUID(),
@@ -47,6 +45,7 @@ public class DefaultPersonService extends BaseEdboService<EDBOPersonSoap> implem
 	@Override
 	public ArrayOfDPersonAddRet createApplicantManually(final PersonEntrantAdd request) {
 		LOG.info("Creating new person manually");
+
 		EDBOPersonSoap client = getServiceManager().getWebServiceClient();
 		
 		ArrayOfDPersonAddRet response = client.personEntrantAdd(request.getSessionGUID(),

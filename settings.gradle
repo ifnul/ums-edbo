@@ -8,4 +8,6 @@ include ":ums-edbo-model"
 include ":ums-edbo-resource" 
 include ":ums-edbo-common"
 include ":ums-edbo-security"
+include ":ums-edbo-guides"
+include ":ums-edbo-person"
 
