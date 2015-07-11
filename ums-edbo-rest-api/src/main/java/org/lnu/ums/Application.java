@@ -5,6 +5,7 @@ import org.lnu.ums.config.DaoConfig;
 import org.lnu.ums.config.FacadeConfig;
 import org.lnu.ums.config.GuidesServiceConfig;
 import org.lnu.ums.config.PersonServiceConfig;
+import org.lnu.ums.config.SecurityConfig;
 import org.lnu.ums.config.ServiceConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -21,6 +22,7 @@ import org.springframework.context.annotation.Import;
         ControllerConfig.class,
         FacadeConfig.class,
         ServiceConfig.class,
+        SecurityConfig.class,
         DaoConfig.class,
         GuidesServiceConfig.class,
         PersonServiceConfig.class
