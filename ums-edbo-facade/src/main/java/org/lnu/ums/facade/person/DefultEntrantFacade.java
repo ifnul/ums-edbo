@@ -1,8 +1,8 @@
 package org.lnu.ums.facade.person;
 
 import org.lnu.ums.converter.Converter;
-import org.lnu.ums.resource.person.EdboPersonResource;
-import org.lnu.ums.resource.person.PersonResource;
+import org.lnu.ums.resource.person.EdboAutoEntrantResource;
+import org.lnu.ums.resource.person.EdboManualEntrantResource;
 import org.lnu.ums.service.person.PersonService;
 import org.springframework.stereotype.Component;
 import ua.edboservice.ArrayOfDPersonAddRet;
@@ -20,31 +20,26 @@ import javax.annotation.Resource;
 public class DefultEntrantFacade implements EntrantFacade {
 
 	@Resource(name = "personEntrantAutoAddConverter")
-	private Converter<EdboPersonResource, PersonEntrantAutoAdd> personEntrantAutoAddConverter;
+	private Converter<EdboAutoEntrantResource, PersonEntrantAutoAdd> personEntrantAutoAddConverter;
 
 	@Resource(name = "personEntrantAddConverter")
-	private Converter<EdboPersonResource, PersonEntrantAdd> personEntrantAddConverter;
-
-	@Resource(name = "entrantConverter")
-    private Converter<ArrayOfDPersonAddRet, PersonResource> entrantConverter;
+	private Converter<EdboManualEntrantResource, PersonEntrantAdd> personEntrantAddConverter;
 
 	@Resource(name = "personService")
 	private PersonService service;
 
 	@Override
-	public PersonResource createEntrant(final EdboPersonResource resource) {
-        Boolean autoCreate = resource.getAutoCreate();
-        ArrayOfDPersonAddRet entrant;
+	public void createEntrantManually(final EdboManualEntrantResource resource) {
+        PersonEntrantAdd personEntrantAdd = personEntrantAddConverter.convert(resource);
+        ArrayOfDPersonAddRet entrant = service.createApplicantManually(personEntrantAdd);
+        // todo: ivanursul - make call to main service for integration uid,utid, etc..
+    }
 
-        if (autoCreate) {
-            PersonEntrantAutoAdd personEntrantAutoAdd = personEntrantAutoAddConverter.convert(resource);
-            entrant = service.createApplicantAutomatically(personEntrantAutoAdd);
-        } else {
-            PersonEntrantAdd personEntrantAdd = personEntrantAddConverter.convert(resource);
-            entrant = service.createApplicantManually(personEntrantAdd);
-        }
-
-		return entrantConverter.convert(entrant);
-	}
+    @Override
+    public void createEntrantAutomatically(EdboAutoEntrantResource resource) {
+        PersonEntrantAutoAdd personEntrantAutoAdd = personEntrantAutoAddConverter.convert(resource);
+        ArrayOfDPersonAddRet entrant = service.createApplicantAutomatically(personEntrantAutoAdd);
+        // todo: ivanursul - make call to main service for integration uid,utid, etc..
+    }
 
 }

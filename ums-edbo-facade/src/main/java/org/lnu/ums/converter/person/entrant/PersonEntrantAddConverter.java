@@ -1,34 +1,22 @@
 package org.lnu.ums.converter.person.entrant;
 
-import org.lnu.is.domain.person.Person;
-import org.lnu.is.domain.person.address.PersonAddress;
 import org.lnu.ums.converter.AbstractConverter;
-import org.lnu.ums.dao.PersonRepository;
-import org.lnu.ums.resource.person.EdboPersonResource;
+import org.lnu.ums.resource.person.EdboManualEntrantResource;
 import org.springframework.stereotype.Component;
 import ua.edboservice.PersonEntrantAdd;
-
-import javax.annotation.Resource;
 
 /**
  * Created by ivanursul on 7/10/15.
  */
 @Component("personEntrantAddConverter")
-public class PersonEntrantAddConverter extends AbstractConverter<EdboPersonResource, PersonEntrantAdd> {
+public class PersonEntrantAddConverter extends AbstractConverter<EdboManualEntrantResource, PersonEntrantAdd> {
     private static final String DELIMITER = ", ";
 
-    @Resource
-    private PersonRepository personRepository;
-
     @Override
-    public PersonEntrantAdd convert(final EdboPersonResource source, final PersonEntrantAdd target) {
-        Person person = personRepository.findOne(source.getPersonId());
+    public PersonEntrantAdd convert(final EdboManualEntrantResource source, final PersonEntrantAdd target) {
 
-        String address = getAddress(person);
-        Integer allowProcessPersonalData = getAllowProcessPersonalData(person);
-
-        target.setAdress(address);
-        target.setAllowProcessedPersonalData(allowProcessPersonalData);
+        target.setAdress(source.getAdress());
+        target.setAllowProcessedPersonalData(source.getAllowProcessedPersonalData());
         target.setBirthCertificateDate("");
         target.setBirthCertificateNumber("");
         target.setBirthCertificateSeries("");
@@ -79,31 +67,8 @@ public class PersonEntrantAddConverter extends AbstractConverter<EdboPersonResou
         return target;
     }
 
-    private Integer getAllowProcessPersonalData(final Person person) {
-        return 1;
-    }
-
-    private String getAddress(final Person person) {
-        StringBuilder addressStr = new StringBuilder();
-
-        if (person.getAdresses() != null || !person.getAdresses().isEmpty()) {
-            PersonAddress address = person.getAdresses().stream().findFirst().get();
-
-            addressStr.append(address.getAddressType().getName());
-            addressStr.append(DELIMITER);
-            addressStr.append(address.getStreet());
-            addressStr.append(DELIMITER);
-            addressStr.append(address.getApartment());
-            addressStr.append(DELIMITER);
-            addressStr.append(address.getZipCode());
-        }
-
-        return addressStr.toString();
-    }
-
-
     @Override
-    public PersonEntrantAdd convert(final EdboPersonResource source) {
+    public PersonEntrantAdd convert(final EdboManualEntrantResource source) {
         return convert(source, new PersonEntrantAdd());
     }
 

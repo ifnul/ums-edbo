@@ -1,4 +1,5 @@
 project.ext.domainName='university'
+println System.getProperty("java.home")
 
 allprojects {
 	apply plugin: 'java'
@@ -56,10 +57,16 @@ project(':ums-edbo-resource') {
 	}
 }
 
+project(':ums-edbo-security') {
+    dependencies {
+        compile project(':ums-edbo-service')
+    }
+}
+
 project(':ums-edbo-service') {
-	dependencies {
-		compile project(':ums-edbo-dao')
-	}
+    dependencies {
+        compile project(':ums-edbo-dao')
+    }
 }
 
 project(':ums-edbo-dao') {

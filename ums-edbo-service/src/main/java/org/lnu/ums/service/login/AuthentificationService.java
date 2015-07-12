@@ -1,7 +1,7 @@
 package org.lnu.ums.service.login;
 
 
-import org.lnu.ums.model.authentification.Authentication;
+import org.lnu.ums.model.authentification.EdboAuthentication;
 
 /**
  * Interface, that describes login functionality.
@@ -16,12 +16,12 @@ public interface AuthentificationService {
 	 * @param authentification
 	 * @return authentification object with all required params.
 	 */
-    Authentication login(Authentication authentification);
+    EdboAuthentication login(EdboAuthentication authentification);
 	
 	/**
 	 * Method for logouting from system.
 	 * @param authentication
 	 */
-	void logout(Authentication authentication);
+	void logout(EdboAuthentication authentication);
 	
 }

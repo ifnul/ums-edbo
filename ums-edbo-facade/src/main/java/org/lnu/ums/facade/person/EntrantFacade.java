@@ -1,7 +1,7 @@
 package org.lnu.ums.facade.person;
 
-import org.lnu.ums.resource.person.EdboPersonResource;
-import org.lnu.ums.resource.person.PersonResource;
+import org.lnu.ums.resource.person.EdboAutoEntrantResource;
+import org.lnu.ums.resource.person.EdboManualEntrantResource;
 
 /**
  * Interface for describing requests for edbo person.
@@ -10,11 +10,7 @@ import org.lnu.ums.resource.person.PersonResource;
  */
 public interface EntrantFacade {
 
-	/**
-	 * Method for creating applicant.
-	 * @param resource resource.
-	 * @return person resource.
-	 */
-	PersonResource createEntrant(EdboPersonResource resource);
-	
+	void createEntrantManually(EdboManualEntrantResource resource);
+
+    void createEntrantAutomatically(EdboAutoEntrantResource resource);
 }

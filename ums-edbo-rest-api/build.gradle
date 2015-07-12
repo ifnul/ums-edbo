@@ -25,7 +25,3 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-actuator:1.2.4.RELEASE'
     compile 'javax.servlet:javax.servlet-api:3.1.0'
 }
-
-processResources {
-    expand(project.properties)
-}

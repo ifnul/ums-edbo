@@ -14,7 +14,7 @@ public class BaseEdboService<WEBSERVICE> {
 	private ServiceManager<WEBSERVICE> serviceManager;
 
 	private String applicationKey;
-	
+
 	private Integer clearPreviousSession;
 	
 	public ServiceManager<WEBSERVICE> getServiceManager() {

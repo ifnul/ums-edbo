@@ -1,12 +1,13 @@
 package org.lnu.ums.rest.controller.entrant;
 
 import org.lnu.ums.facade.person.EntrantFacade;
-import org.lnu.ums.resource.person.EdboPersonResource;
-import org.lnu.ums.resource.person.PersonResource;
+import org.lnu.ums.resource.person.EdboAutoEntrantResource;
+import org.lnu.ums.resource.person.EdboManualEntrantResource;
 import org.lnu.ums.rest.controller.BaseController;
 import org.lnu.ums.rest.model.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,10 +22,20 @@ public class EntrantController extends BaseController {
     @Resource(name = "entrantFacade")
     private EntrantFacade entrantFacade;
 
-    @RequestMapping(method = RequestMethod.POST)
-    public PersonResource createEntrant(final EdboPersonResource resource) {
+    @RequestMapping(value = "/manual", method = RequestMethod.POST)
+    public ResponseEntity<Void> createEntrantManually(final EdboManualEntrantResource resource) {
         LOGGER.info("Creating new entrant:{}", resource);
-        return entrantFacade.createEntrant(resource);
+        entrantFacade.createEntrantManually(resource);
+
+        return ResponseEntity.accepted().build();
+    }
+
+    @RequestMapping(value = "/auto", method = RequestMethod.POST)
+    public ResponseEntity<Void> createEntrantAutomatically(final EdboAutoEntrantResource resource) {
+        LOGGER.info("Creating new entrant:{}", resource);
+        entrantFacade.createEntrantAutomatically(resource);
+
+        return ResponseEntity.accepted().build();
     }
 
 }

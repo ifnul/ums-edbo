@@ -9,15 +9,15 @@ import ua.edboservice.EDBOGuidesSoap;
  */
 public class EDBOGuidesServiceManager implements ServiceManager<EDBOGuidesSoap> {
 
-	private EDBOGuidesSoap edboGuides;
+	private EDBOGuidesSoap edboGuidesSoap;
 	
 	@Override
 	public EDBOGuidesSoap getWebServiceClient() {
-		return edboGuides;
+		return edboGuidesSoap;
 	}
 
-	public void setEdboGuides(final EDBOGuidesSoap edboGuides) {
-		this.edboGuides = edboGuides;
+	public void setEdboGuidesSoap(final EDBOGuidesSoap edboGuidesSoap) {
+		this.edboGuidesSoap = edboGuidesSoap;
 	}
 
 }
