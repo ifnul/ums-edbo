@@ -10,7 +10,6 @@ import ua.edboservice.EDBOGuidesSoap;
  * @author ivanursul
  *
  */
-@Service("edboAuthentificationService")
 public class DefaultAuthentificationService extends BaseEdboService<EDBOGuidesSoap> implements AuthentificationService {
 
 	@Override

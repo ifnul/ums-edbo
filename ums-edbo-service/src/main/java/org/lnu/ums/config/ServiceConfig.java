@@ -6,6 +6,7 @@ import org.lnu.ums.service.BaseEdboService;
 import org.lnu.ums.service.login.DefaultAuthentificationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -23,8 +24,10 @@ import java.net.URL;
 public class ServiceConfig {
     private static final Logger LOGGER = LoggerFactory.getLogger(ServiceConfig.class);
 
+    @Value("${edbo.applicationKey}")
     private String applicationKey;
 
+    @Value("${edbo.clearPreviousSession}")
     private Integer clearPreviousSession;
 
     @Bean(name = "edboAuthentificationService")
@@ -50,14 +53,12 @@ public class ServiceConfig {
     public EDBOGuidesSoap edboGuidesSoap() {
         LOGGER.info("Initializing edbo Guides Soap");
 
-        EDBOGuides edboGuides = new EDBOGuides();
-
-        URL wsdlURL = EDBOGuides.class.getResource("wsdl/EDBOGuides.wsdl");
+        URL wsdlURL = EDBOGuides.class.getClassLoader().getResource("wsdl/EDBOGuides.wsdl");
 
         QName serviceName = new QName("http://edboservice.ua/", "EDBOGuides");
-        EDBOGuides ss = new EDBOGuides(wsdlURL, serviceName);
+        EDBOGuides edboGuides = new EDBOGuides(wsdlURL, serviceName);
 
-        return ss.getEDBOGuidesSoap();
+        return edboGuides.getEDBOGuidesSoap();
     }
 
 }

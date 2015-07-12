@@ -23,3 +23,9 @@ wsdl2java{
     wsdlDir = file("$projectDir/src/main/resources/wsdl")
     cxfVersion = "3.0.1"
 }
+
+processResources {
+    from ('src/main/resources') {
+        include '**/*.wsdl'
+    }
+}
