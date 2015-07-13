@@ -10,6 +10,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.web.client.RestTemplate;
 import ua.edboservice.EDBOGuides;
 import ua.edboservice.EDBOGuidesSoap;
 
@@ -29,6 +32,15 @@ public class ServiceConfig {
 
     @Value("${edbo.clearPreviousSession}")
     private Integer clearPreviousSession;
+
+    @Bean
+    public RestTemplate restTemplate() {
+        LOGGER.debug("Initializing rest tempalte");
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.getMessageConverters().add(jacksonHttpMessageConverters());
+
+        return restTemplate;
+    }
 
     @Bean(name = "edboAuthentificationService")
     public BaseEdboService<EDBOGuidesSoap> edboAuthentificationService() {
@@ -59,6 +71,11 @@ public class ServiceConfig {
         EDBOGuides edboGuides = new EDBOGuides(wsdlURL, serviceName);
 
         return edboGuides.getEDBOGuidesSoap();
+    }
+
+    @Bean(name = "restTemplateJacksonHttpMessageConverter")
+    public HttpMessageConverter<?> jacksonHttpMessageConverters() {
+        return new MappingJackson2HttpMessageConverter();
     }
 
 }
