@@ -2,6 +2,7 @@ package org.lnu.ums.service;
 
 
 import org.lnu.ums.manager.ServiceManager;
+import org.lnu.ums.service.handler.ExceptionHandler;
 
 /**
  * Abstract class for storing ServiceManager.
@@ -16,6 +17,8 @@ public class BaseEdboService<WEBSERVICE> {
 	private String applicationKey;
 
 	private Integer clearPreviousSession;
+
+	private ExceptionHandler exceptionHandler;
 	
 	public ServiceManager<WEBSERVICE> getServiceManager() {
 		return serviceManager;
@@ -39,6 +42,22 @@ public class BaseEdboService<WEBSERVICE> {
 
 	public void setClearPreviousSession(final Integer clearPreviousSession) {
 		this.clearPreviousSession = clearPreviousSession;
+	}
+
+	public void setExceptionHandler(ExceptionHandler exceptionHandler) {
+		this.exceptionHandler = exceptionHandler;
+	}
+
+	public <T> T handleResponse(T response, String sessionGUID) {
+		if (response == null) {
+			exceptionHandler.handle(sessionGUID);
+		}
+
+		return response;
+	}
+
+	public WEBSERVICE client() {
+		return serviceManager.getWebServiceClient();
 	}
 	
 }

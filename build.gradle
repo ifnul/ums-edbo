@@ -26,6 +26,7 @@ subprojects {
 		compile 'org.springframework.security:spring-security-core:4.0.1.RELEASE'
 		compile 'org.springframework.security:spring-security-config:4.0.1.RELEASE'
 		compile 'org.springframework.security:spring-security-web:4.0.1.RELEASE'
+		compile 'com.h2database:h2:1.3.156'
 
 		testCompile 'junit:junit:4.12'
 		testCompile 'org.mockito:mockito-all:1.10.19'
@@ -39,21 +40,8 @@ task wrapper(type: Wrapper) {
 //Declaring dependencies between submodules
 project(':ums-edbo-rest-api') {
 	dependencies {
-		compile project(':ums-edbo-facade')
-        compile project(':ums-edbo-security')
-	}
-}
-
-project(':ums-edbo-facade') {
-	dependencies {
 		compile project(':ums-edbo-service')
-		compile project(':ums-edbo-resource')
-	}
-}
-
-project(':ums-edbo-resource') {
-	dependencies {
-		compile project(':ums-edbo-common')
+        compile project(':ums-edbo-security')
 	}
 }
 
@@ -65,17 +53,16 @@ project(':ums-edbo-security') {
 
 project(':ums-edbo-service') {
     dependencies {
-        compile project(':ums-edbo-dao')
+		compile project(':ums-edbo-guides')
+		compile project(':ums-edbo-person')
+
+		compile project(':ums-edbo-model')
     }
 }
 
-project(':ums-edbo-dao') {
+project(':ums-edbo-common') {
 	dependencies {
-		compile project(':ums-edbo-model')
-		compile project(':ums-edbo-common')
-
-        compile project(':ums-edbo-guides')
-        compile project(':ums-edbo-person')
+		compile 'org.springframework.boot:spring-boot-starter-web:1.2.4.RELEASE'
 	}
 }
 
@@ -91,11 +78,5 @@ project(':ums-edbo-person') {
 		compile project(':ums-edbo-common')
 
 		compile 'org.springframework:spring-context:4.1.6.RELEASE'
-	}
-}
-
-project(':ums-edbo-common') {
-	dependencies {
-		compile 'org.springframework.boot:spring-boot-starter-web:1.2.4.RELEASE'
 	}
 }

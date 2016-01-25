@@ -524,6 +524,25 @@
         </s:sequence>
       </s:complexType>
 
+      <s:element name="GetLastErrorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLastErrorResult" type="tns:ArrayOfDLastError" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDLastError">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="dLastError" nillable="true" type="tns:dLastError" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="dLastError">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="LastErrorCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastErrorDescription" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+
     </s:schema>
  </wsdl:types>
 
