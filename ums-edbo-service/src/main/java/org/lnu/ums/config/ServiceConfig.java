@@ -4,6 +4,7 @@ import org.lnu.ums.manager.EDBOGuidesServiceManager;
 import org.lnu.ums.manager.EDBOPersonServiceManager;
 import org.lnu.ums.manager.ServiceManager;
 import org.lnu.ums.service.BaseEdboService;
+import org.lnu.ums.service.guides.GuidesService;
 import org.lnu.ums.service.login.DefaultAuthentificationService;
 import org.lnu.ums.service.person.PersonService;
 import org.slf4j.Logger;
@@ -54,6 +55,16 @@ public class ServiceConfig {
         personService.setServiceManager(edboPersonSoapServiceManager());
 
         return personService;
+    }
+
+    @Bean
+    public GuidesService guidesService() {
+        GuidesService guidesService = new GuidesService();
+        guidesService.setApplicationKey(applicationKey);
+        guidesService.setClearPreviousSession(clearPreviousSession);
+        guidesService.setServiceManager(edboGuidesSoapServiceManager());
+
+        return guidesService;
     }
 
     @Bean(name = "edboAuthentificationService")
