@@ -14,6 +14,7 @@ import ua.edboservice.ArrayOfDUniversityFacultetSpecialitiesSubjects2;
 import ua.edboservice.ArrayOfDUniversityFacultetsRequests2;
 
 import javax.annotation.Resource;
+import javax.jws.WebParam;
 
 @RestController
 @RequestMapping(Constants.API_URL + "/guides")
@@ -102,6 +103,11 @@ public class GuidesController extends BaseController {
                                                 @RequestParam("ActualDate") String actualDate,
                                                 @RequestParam("UniversityName") String universityName) {
         return guidesService.getUniversities(sessionGUID, universityKode, idLanguage, actualDate, universityName);
+    }
+
+    @RequestMapping("/login")
+    public String login(@RequestParam("User") String user, @RequestParam("Password") String password) {
+        return guidesService.login(user, password);
     }
 
 }

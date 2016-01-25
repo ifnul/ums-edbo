@@ -58,4 +58,9 @@ public class GuidesService extends BaseEdboService<EDBOGuidesSoap> {
         ArrayOfDUniversityFacultetSpecialitiesSubjects2 response = client().universityFacultetSpecialitiesSubjectsGet2(sessionGUID, idLanguage, actualDate, universitySpecialitiesKode);
         return handleResponse(response, sessionGUID);
     }
+
+    public String login(String user, String password) {
+        String response = client().login(user, password, getClearPreviousSession(), getApplicationKey());
+        return handleResponse(response, "");
+    }
 }
