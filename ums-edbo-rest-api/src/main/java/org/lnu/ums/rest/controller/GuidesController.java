@@ -6,11 +6,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import ua.edboservice.ArrayOfDLanguages;
+import ua.edboservice.ArrayOfDSpecSpecialization;
 import ua.edboservice.ArrayOfDUniversityFacultetSpecialities;
 import ua.edboservice.ArrayOfDUniversityFacultetSpecialitiesQuotas;
 import ua.edboservice.ArrayOfDUniversityFacultetsRequests2;
 
 import javax.annotation.Resource;
+import javax.jws.WebParam;
 
 @RestController
 @RequestMapping(Constants.API_URL + "/guides")
@@ -75,6 +77,13 @@ public class GuidesController extends BaseController {
                                                               @RequestParam("Filters") String filters) {
         return guidesService.getFaculties2(sessionGUID, idPersonRequestSeasons, universityFacultetKode, universitySpecialitiesKode, idLanguage, actualDate, personCodeU, hundred,
                 minDate, idPersonRequestStatusType1, idPersonRequestStatusType2, idPersonRequestStatusType3, idPersonEducationForm, universityKode, idQualification, filters);
+    }
+
+    @RequestMapping("/spec/specializations")
+    public ArrayOfDSpecSpecialization getSpecSpecializations(@RequestParam("SessionGUID") String sessionGUID,
+                                                             @RequestParam("SpecDirectionsCode") String specDirectionsCode,
+                                                             @RequestParam("SpecSpecialityCode") String specSpecialityCode) {
+        return guidesService.getSpecSpecializations(sessionGUID, specDirectionsCode, specSpecialityCode);
     }
 
 }
