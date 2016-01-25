@@ -18,7 +18,6 @@ import org.springframework.context.annotation.Import;
 @Import({
         ControllerConfig.class,
         ServiceConfig.class,
-        //SecurityConfig.class,
         GuidesServiceConfig.class,
         PersonServiceConfig.class
 })

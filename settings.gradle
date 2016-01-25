@@ -3,8 +3,6 @@ rootProject.name = 'ums-edbo'
 include ":ums-edbo-rest-api" 
 include ":ums-edbo-service"
 include ":ums-edbo-common"
-include ":ums-edbo-model"
-include ":ums-edbo-security"
 include ":ums-edbo-guides"
 include ":ums-edbo-person"
 

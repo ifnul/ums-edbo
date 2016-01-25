@@ -3,9 +3,7 @@ package org.lnu.ums.config;
 import org.lnu.ums.manager.EDBOGuidesServiceManager;
 import org.lnu.ums.manager.EDBOPersonServiceManager;
 import org.lnu.ums.manager.ServiceManager;
-import org.lnu.ums.service.BaseEdboService;
 import org.lnu.ums.service.guides.GuidesService;
-import org.lnu.ums.service.login.DefaultAuthentificationService;
 import org.lnu.ums.service.person.PersonService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -65,17 +63,6 @@ public class ServiceConfig {
         guidesService.setServiceManager(edboGuidesSoapServiceManager());
 
         return guidesService;
-    }
-
-    @Bean(name = "edboAuthentificationService")
-    public BaseEdboService<EDBOGuidesSoap> edboAuthentificationService() {
-        BaseEdboService<EDBOGuidesSoap> service = new DefaultAuthentificationService();
-
-        service.setApplicationKey(applicationKey);
-        service.setClearPreviousSession(clearPreviousSession);
-        service.setServiceManager(edboGuidesSoapServiceManager());
-
-        return service;
     }
 
     @Bean(name = "edboGuidesSoapServiceManager")
