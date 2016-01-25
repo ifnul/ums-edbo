@@ -10,10 +10,10 @@ import ua.edboservice.ArrayOfDSpecSpecialization;
 import ua.edboservice.ArrayOfDUniversities;
 import ua.edboservice.ArrayOfDUniversityFacultetSpecialities;
 import ua.edboservice.ArrayOfDUniversityFacultetSpecialitiesQuotas;
+import ua.edboservice.ArrayOfDUniversityFacultetSpecialitiesSubjects2;
 import ua.edboservice.ArrayOfDUniversityFacultetsRequests2;
 
 import javax.annotation.Resource;
-import javax.jws.WebParam;
 
 @RestController
 @RequestMapping(Constants.API_URL + "/guides")
@@ -38,6 +38,14 @@ public class GuidesController extends BaseController {
         return guidesService.getUniversityFacultySpecialties(sessionGUID, universityKode, universityFacultetKode,
                 specCode, idLanguage, actualDate, idPersonRequestSeasons, idPersonEducationForm,
                 universitySpecialitiesKode, specDirectionsCode, specSpecialityCode, filters);
+    }
+
+    @RequestMapping("/faculties/subjects")
+    public ArrayOfDUniversityFacultetSpecialitiesSubjects2 getUniversityFacultySpecialtiesSubjects(@RequestParam("SessionGUID") String sessionGUID,
+                                                                                          @RequestParam("Id_Language") int idLanguage,
+                                                                                          @RequestParam("ActualDate") String actualDate,
+                                                                                          @RequestParam("UniversitySpecialitiesKode") String universitySpecialitiesKode) {
+        return guidesService.getUniversityFacultySpecialtiesSubjects(sessionGUID, idLanguage, actualDate, universitySpecialitiesKode);
     }
 
     @RequestMapping("/faculties/specialties/quotas")

@@ -6,6 +6,7 @@ import ua.edboservice.ArrayOfDSpecSpecialization;
 import ua.edboservice.ArrayOfDUniversities;
 import ua.edboservice.ArrayOfDUniversityFacultetSpecialities;
 import ua.edboservice.ArrayOfDUniversityFacultetSpecialitiesQuotas;
+import ua.edboservice.ArrayOfDUniversityFacultetSpecialitiesSubjects2;
 import ua.edboservice.ArrayOfDUniversityFacultetsRequests2;
 import ua.edboservice.EDBOGuidesSoap;
 
@@ -50,6 +51,11 @@ public class GuidesService extends BaseEdboService<EDBOGuidesSoap> {
 
     public ArrayOfDUniversities getUniversities(String sessionGUID, String universityKode, int idLanguage, String actualDate, String universityName) {
         ArrayOfDUniversities response = client().universitiesGet(sessionGUID, universityKode, idLanguage, actualDate, universityName);
+        return handleResponse(response, sessionGUID);
+    }
+
+    public ArrayOfDUniversityFacultetSpecialitiesSubjects2 getUniversityFacultySpecialtiesSubjects(String sessionGUID, int idLanguage, String actualDate, String universitySpecialitiesKode) {
+        ArrayOfDUniversityFacultetSpecialitiesSubjects2 response = client().universityFacultetSpecialitiesSubjectsGet2(sessionGUID, idLanguage, actualDate, universitySpecialitiesKode);
         return handleResponse(response, sessionGUID);
     }
 }
