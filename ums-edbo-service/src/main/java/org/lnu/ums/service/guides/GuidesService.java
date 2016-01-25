@@ -3,6 +3,7 @@ package org.lnu.ums.service.guides;
 import org.lnu.ums.service.BaseEdboService;
 import ua.edboservice.ArrayOfDLanguages;
 import ua.edboservice.ArrayOfDSpecSpecialization;
+import ua.edboservice.ArrayOfDUniversities;
 import ua.edboservice.ArrayOfDUniversityFacultetSpecialities;
 import ua.edboservice.ArrayOfDUniversityFacultetSpecialitiesQuotas;
 import ua.edboservice.ArrayOfDUniversityFacultetsRequests2;
@@ -44,6 +45,11 @@ public class GuidesService extends BaseEdboService<EDBOGuidesSoap> {
 
     public ArrayOfDSpecSpecialization getSpecSpecializations(String sessionGUID, String specDirectionsCode, String specSpecialityCode) {
         ArrayOfDSpecSpecialization response = client().specSpecializationFind(sessionGUID, specDirectionsCode, specSpecialityCode);
+        return handleResponse(response, sessionGUID);
+    }
+
+    public ArrayOfDUniversities getUniversities(String sessionGUID, String universityKode, int idLanguage, String actualDate, String universityName) {
+        ArrayOfDUniversities response = client().universitiesGet(sessionGUID, universityKode, idLanguage, actualDate, universityName);
         return handleResponse(response, sessionGUID);
     }
 }
