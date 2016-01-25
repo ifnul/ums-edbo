@@ -1,7 +1,10 @@
 package org.lnu.ums.service.guides;
 
 import org.lnu.ums.service.BaseEdboService;
+import ua.edboservice.ArrayOfDLanguages;
 import ua.edboservice.ArrayOfDUniversityFacultetSpecialities;
+import ua.edboservice.ArrayOfDUniversityFacultetSpecialitiesQuotas;
+import ua.edboservice.ArrayOfDUniversityFacultetsRequests2;
 import ua.edboservice.EDBOGuidesSoap;
 
 public class GuidesService extends BaseEdboService<EDBOGuidesSoap> {
@@ -12,6 +15,29 @@ public class GuidesService extends BaseEdboService<EDBOGuidesSoap> {
                                                                                   String specDirectionsCode, String specSpecialityCode, String filters) {
         ArrayOfDUniversityFacultetSpecialities response = client().universityFacultetSpecialitiesGet(sessionGUID, universityKode, universityFacultetKode, specCode, idLanguage, actualDate, idPersonRequestSeasons,
                 idPersonEducationForm, universitySpecialitiesKode, specDirectionsCode, specSpecialityCode, filters);
+        return handleResponse(response, sessionGUID);
+    }
+
+    public ArrayOfDUniversityFacultetSpecialitiesQuotas getUniversityFacultySpecialitiesQuotas(String sessionGUID, int idLanguage, String actualDate, String universitySpecialitiesKode, int idQuota) {
+        ArrayOfDUniversityFacultetSpecialitiesQuotas response = client().universityFacultetSpecialitiesQuotasGet(sessionGUID, idLanguage, actualDate, universitySpecialitiesKode, idQuota);
+        return handleResponse(response, sessionGUID);
+    }
+
+    public String logout(String sessionGUID) {
+        String response = client().logout(sessionGUID);
+        return handleResponse(response, sessionGUID);
+    }
+
+    public ArrayOfDLanguages getLanguages(String sessionGUID) {
+        ArrayOfDLanguages response = client().languagesGet(sessionGUID);
+        return handleResponse(response, sessionGUID);
+    }
+
+    public ArrayOfDUniversityFacultetsRequests2 getFaculties2(String sessionGUID, int idPersonRequestSeasons, String universityFacultetKode, String universitySpecialitiesKode,
+                                                              int idLanguage, String actualDate, String personCodeU, int hundred, String minDate, int idPersonRequestStatusType1, int idPersonRequestStatusType2,
+                                                              int idPersonRequestStatusType3, int idPersonEducationForm, String universityKode, int idQualification, String filters) {
+        ArrayOfDUniversityFacultetsRequests2 response = client().universityFacultetsGetRequests2(sessionGUID, idPersonRequestSeasons, universityFacultetKode, universitySpecialitiesKode, idLanguage, actualDate,
+                personCodeU, hundred, minDate, idPersonRequestStatusType1, idPersonRequestStatusType2, idPersonRequestStatusType3, idPersonEducationForm, universityKode, idQualification, filters);
         return handleResponse(response, sessionGUID);
     }
 }
