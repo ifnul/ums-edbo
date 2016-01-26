@@ -4,6 +4,8 @@ import org.lnu.ums.manager.EDBOGuidesServiceManager;
 import org.lnu.ums.manager.EDBOPersonServiceManager;
 import org.lnu.ums.manager.ServiceManager;
 import org.lnu.ums.service.guides.GuidesService;
+import org.lnu.ums.service.handler.DefaultExceptionHandler;
+import org.lnu.ums.service.handler.ExceptionHandler;
 import org.lnu.ums.service.person.PersonService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -51,6 +53,7 @@ public class ServiceConfig {
         personService.setApplicationKey(applicationKey);
         personService.setClearPreviousSession(clearPreviousSession);
         personService.setServiceManager(edboPersonSoapServiceManager());
+        personService.setExceptionHandler(exceptionHandler());
 
         return personService;
     }
@@ -61,6 +64,7 @@ public class ServiceConfig {
         guidesService.setApplicationKey(applicationKey);
         guidesService.setClearPreviousSession(clearPreviousSession);
         guidesService.setServiceManager(edboGuidesSoapServiceManager());
+        guidesService.setExceptionHandler(exceptionHandler());
 
         return guidesService;
     }
@@ -104,6 +108,11 @@ public class ServiceConfig {
         EDBOGuides edboGuides = new EDBOGuides(wsdlURL, serviceName);
 
         return edboGuides.getEDBOGuidesSoap();
+    }
+
+    @Bean(name = "defaultExceptionHandler")
+    public ExceptionHandler exceptionHandler() {
+        return new DefaultExceptionHandler();
     }
 
     @Bean(name = "restTemplateJacksonHttpMessageConverter")

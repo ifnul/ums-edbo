@@ -3,7 +3,6 @@ package org.lnu.ums.service.handler;
 import org.lnu.ums.service.handler.exception.ExceptionThrower;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
 import ua.edboservice.EDBOPersonSoap;
 
 import java.util.Map;
@@ -13,7 +12,6 @@ import java.util.Map;
  * @author ivanursul
  *
  */
-@Component("edboPersonExceptionHandler")
 public class DefaultExceptionHandler extends BaseExceptionHandler<EDBOPersonSoap> {
 	private static final String NO_THROWER_MESSAGE = "There is no org.lnu.ums.service.handler for this type of edbo error code. Please, contact dev team with information about: errorCode:{0} , message: {1}";
 
