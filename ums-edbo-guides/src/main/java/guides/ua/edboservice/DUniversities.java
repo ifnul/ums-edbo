@@ -126,6 +126,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="UniversityKodeEarlyPreview" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="Id_UniversityKodeEarlyPreview" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="UniversityFullNameEarlyPreview" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="EnableDocuemntEWithoutPersons" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="IsExistVariatDisc" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="IsCustomSpecNameInEDocuments" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -242,7 +245,10 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "universityManagmentOrganisationsTypesTypes",
     "universityKodeEarlyPreview",
     "idUniversityKodeEarlyPreview",
-    "universityFullNameEarlyPreview"
+    "universityFullNameEarlyPreview",
+    "enableDocuemntEWithoutPersons",
+    "isExistVariatDisc",
+    "isCustomSpecNameInEDocuments"
 })
 public class DUniversities {
 
@@ -469,6 +475,12 @@ public class DUniversities {
     protected int idUniversityKodeEarlyPreview;
     @XmlElement(name = "UniversityFullNameEarlyPreview")
     protected String universityFullNameEarlyPreview;
+    @XmlElement(name = "EnableDocuemntEWithoutPersons")
+    protected int enableDocuemntEWithoutPersons;
+    @XmlElement(name = "IsExistVariatDisc")
+    protected int isExistVariatDisc;
+    @XmlElement(name = "IsCustomSpecNameInEDocuments")
+    protected int isCustomSpecNameInEDocuments;
 
     /**
      * Gets the value of the idUniversity property.
@@ -2684,6 +2696,54 @@ public class DUniversities {
      */
     public void setUniversityFullNameEarlyPreview(String value) {
         this.universityFullNameEarlyPreview = value;
+    }
+
+    /**
+     * Gets the value of the enableDocuemntEWithoutPersons property.
+     * 
+     */
+    public int getEnableDocuemntEWithoutPersons() {
+        return enableDocuemntEWithoutPersons;
+    }
+
+    /**
+     * Sets the value of the enableDocuemntEWithoutPersons property.
+     * 
+     */
+    public void setEnableDocuemntEWithoutPersons(int value) {
+        this.enableDocuemntEWithoutPersons = value;
+    }
+
+    /**
+     * Gets the value of the isExistVariatDisc property.
+     * 
+     */
+    public int getIsExistVariatDisc() {
+        return isExistVariatDisc;
+    }
+
+    /**
+     * Sets the value of the isExistVariatDisc property.
+     * 
+     */
+    public void setIsExistVariatDisc(int value) {
+        this.isExistVariatDisc = value;
+    }
+
+    /**
+     * Gets the value of the isCustomSpecNameInEDocuments property.
+     * 
+     */
+    public int getIsCustomSpecNameInEDocuments() {
+        return isCustomSpecNameInEDocuments;
+    }
+
+    /**
+     * Sets the value of the isCustomSpecNameInEDocuments property.
+     * 
+     */
+    public void setIsCustomSpecNameInEDocuments(int value) {
+        this.isCustomSpecNameInEDocuments = value;
     }
 
 }
