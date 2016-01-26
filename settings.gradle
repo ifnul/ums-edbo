@@ -1,13 +1,8 @@
 rootProject.name = 'ums-edbo'
 
 include ":ums-edbo-rest-api" 
-include ":ums-edbo-facade" 
-include ":ums-edbo-service" 
-include ":ums-edbo-dao"
-include ":ums-edbo-model"
-include ":ums-edbo-resource" 
+include ":ums-edbo-service"
 include ":ums-edbo-common"
-include ":ums-edbo-security"
 include ":ums-edbo-guides"
 include ":ums-edbo-person"
 

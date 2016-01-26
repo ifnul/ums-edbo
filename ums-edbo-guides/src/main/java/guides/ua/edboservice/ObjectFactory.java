@@ -54,6 +54,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetLastErrorResponse }
+     * 
+     */
+    public GetLastErrorResponse createGetLastErrorResponse() {
+        return new GetLastErrorResponse();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfDLastError }
+     * 
+     */
+    public ArrayOfDLastError createArrayOfDLastError() {
+        return new ArrayOfDLastError();
+    }
+
+    /**
      * Create an instance of {@link LoginResponse }
      * 
      */
@@ -283,6 +299,14 @@ public class ObjectFactory {
      */
     public DUniversityFacultetSpecialitiesQuotas createDUniversityFacultetSpecialitiesQuotas() {
         return new DUniversityFacultetSpecialitiesQuotas();
+    }
+
+    /**
+     * Create an instance of {@link DLastError }
+     * 
+     */
+    public DLastError createDLastError() {
+        return new DLastError();
     }
 
 }
