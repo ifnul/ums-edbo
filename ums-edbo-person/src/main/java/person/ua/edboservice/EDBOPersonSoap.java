@@ -152,6 +152,15 @@ public interface EDBOPersonSoap {
         int idPersonDocumentType
     );
 
+    @WebMethod(operationName = "GetLastError", action = "http://edboservice.ua/GetLastError")
+    @RequestWrapper(localName = "GetLastError", targetNamespace = "http://edboservice.ua/", className = "ua.edboservice.GetLastError")
+    @ResponseWrapper(localName = "GetLastErrorResponse", targetNamespace = "http://edboservice.ua/", className = "ua.edboservice.GetLastErrorResponse")
+    @WebResult(name = "GetLastErrorResult", targetNamespace = "http://edboservice.ua/")
+    public ua.edboservice.ArrayOfDLastError getLastError(
+        @WebParam(name = "GUIDSession", targetNamespace = "http://edboservice.ua/")
+        java.lang.String guidSession
+    );
+
     @WebMethod(operationName = "PersonAddressesGet2", action = "http://edboservice.ua/PersonAddressesGet2")
     @RequestWrapper(localName = "PersonAddressesGet2", targetNamespace = "http://edboservice.ua/", className = "ua.edboservice.PersonAddressesGet2")
     @ResponseWrapper(localName = "PersonAddressesGet2Response", targetNamespace = "http://edboservice.ua/", className = "ua.edboservice.PersonAddressesGet2Response")

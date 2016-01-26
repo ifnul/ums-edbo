@@ -518,6 +518,33 @@
           <s:element minOccurs="0" maxOccurs="1" name="SubjectName" type="s:string" />
         </s:sequence>
       </s:complexType>
+
+      <s:element name="GetLastError">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GUIDSession" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLastErrorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLastErrorResult" type="tns:ArrayOfDLastError"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDLastError">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="dLastError" nillable="true" type="tns:dLastError"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="dLastError">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="LastErrorCode" type="s:int"/>
+          <s:element minOccurs="0" maxOccurs="1" name="LastErrorDescription" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+
     </s:schema>
   </wsdl:types>
 
@@ -600,6 +627,12 @@
   <wsdl:message name="PersonRequestExaminationsGetSoapOut">
     <wsdl:part name="parameters" element="tns:PersonRequestExaminationsGetResponse" />
   </wsdl:message>
+  <wsdl:message name="GetLastErrorSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLastError"/>
+  </wsdl:message>
+  <wsdl:message name="GetLastErrorSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLastErrorResponse"/>
+  </wsdl:message>
   <wsdl:portType name="EDBOPersonSoap">
 
     <wsdl:operation name="PersonsFind">
@@ -656,6 +689,10 @@
     <wsdl:operation name="PersonRequestExaminationsGet">
       <wsdl:input message="tns:PersonRequestExaminationsGetSoapIn" />
       <wsdl:output message="tns:PersonRequestExaminationsGetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastError">
+      <wsdl:input message="tns:GetLastErrorSoapIn"/>
+      <wsdl:output message="tns:GetLastErrorSoapOut"/>
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="EDBOPersonSoap" type="tns:EDBOPersonSoap">
@@ -776,10 +813,19 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetLastError">
+      <soap:operation soapAction="http://edboservice.ua/GetLastError" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="EDBOPerson">
     <wsdl:port name="EDBOPersonSoap" binding="tns:EDBOPersonSoap">
-      <soap:address location="http://192.168.102.51:8080/EDBOPerson/EDBOPerson.asmx" />
+      <soap:address location="http://194.44.198.43:8080/EDBOPerson/EDBOPerson.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

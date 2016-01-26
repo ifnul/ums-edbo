@@ -30,6 +30,118 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetLastErrorResponse }
+     * 
+     */
+    public GetLastErrorResponse createGetLastErrorResponse() {
+        return new GetLastErrorResponse();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfDLastError }
+     * 
+     */
+    public ArrayOfDLastError createArrayOfDLastError() {
+        return new ArrayOfDLastError();
+    }
+
+    /**
+     * Create an instance of {@link PersonDocumentsGetResponse }
+     * 
+     */
+    public PersonDocumentsGetResponse createPersonDocumentsGetResponse() {
+        return new PersonDocumentsGetResponse();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfDPersonDocuments }
+     * 
+     */
+    public ArrayOfDPersonDocuments createArrayOfDPersonDocuments() {
+        return new ArrayOfDPersonDocuments();
+    }
+
+    /**
+     * Create an instance of {@link PersonBenefitsGet }
+     * 
+     */
+    public PersonBenefitsGet createPersonBenefitsGet() {
+        return new PersonBenefitsGet();
+    }
+
+    /**
+     * Create an instance of {@link PersonAddressesGet2Response }
+     * 
+     */
+    public PersonAddressesGet2Response createPersonAddressesGet2Response() {
+        return new PersonAddressesGet2Response();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfDPersonAddresses2 }
+     * 
+     */
+    public ArrayOfDPersonAddresses2 createArrayOfDPersonAddresses2() {
+        return new ArrayOfDPersonAddresses2();
+    }
+
+    /**
+     * Create an instance of {@link PersonRequestDocumentSubjectsGetResponse }
+     * 
+     */
+    public PersonRequestDocumentSubjectsGetResponse createPersonRequestDocumentSubjectsGetResponse() {
+        return new PersonRequestDocumentSubjectsGetResponse();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfDPersonRequestDocumentSubjects }
+     * 
+     */
+    public ArrayOfDPersonRequestDocumentSubjects createArrayOfDPersonRequestDocumentSubjects() {
+        return new ArrayOfDPersonRequestDocumentSubjects();
+    }
+
+    /**
+     * Create an instance of {@link PersonDocumentTypesGetResponse }
+     * 
+     */
+    public PersonDocumentTypesGetResponse createPersonDocumentTypesGetResponse() {
+        return new PersonDocumentTypesGetResponse();
+    }
+
+    /**
+     * Create an instance of {@link ArrayOfDPersonDocumentTypes }
+     * 
+     */
+    public ArrayOfDPersonDocumentTypes createArrayOfDPersonDocumentTypes() {
+        return new ArrayOfDPersonDocumentTypes();
+    }
+
+    /**
+     * Create an instance of {@link PersonAddressesGet2 }
+     * 
+     */
+    public PersonAddressesGet2 createPersonAddressesGet2() {
+        return new PersonAddressesGet2();
+    }
+
+    /**
+     * Create an instance of {@link PersonRequestExaminationsGet }
+     * 
+     */
+    public PersonRequestExaminationsGet createPersonRequestExaminationsGet() {
+        return new PersonRequestExaminationsGet();
+    }
+
+    /**
+     * Create an instance of {@link PersonOlympiadsAwardsGet }
+     * 
+     */
+    public PersonOlympiadsAwardsGet createPersonOlympiadsAwardsGet() {
+        return new PersonOlympiadsAwardsGet();
+    }
+
+    /**
      * Create an instance of {@link PersonDocumentTypesGet }
      * 
      */
@@ -51,22 +163,6 @@ public class ObjectFactory {
      */
     public PersonRequestOlympiadsAwardsGet createPersonRequestOlympiadsAwardsGet() {
         return new PersonRequestOlympiadsAwardsGet();
-    }
-
-    /**
-     * Create an instance of {@link PersonDocumentsGetResponse }
-     * 
-     */
-    public PersonDocumentsGetResponse createPersonDocumentsGetResponse() {
-        return new PersonDocumentsGetResponse();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfDPersonDocuments }
-     * 
-     */
-    public ArrayOfDPersonDocuments createArrayOfDPersonDocuments() {
-        return new ArrayOfDPersonDocuments();
     }
 
     /**
@@ -102,35 +198,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link PersonBenefitsGet }
-     * 
-     */
-    public PersonBenefitsGet createPersonBenefitsGet() {
-        return new PersonBenefitsGet();
-    }
-
-    /**
      * Create an instance of {@link PersonRequestQuotasGet }
      * 
      */
     public PersonRequestQuotasGet createPersonRequestQuotasGet() {
         return new PersonRequestQuotasGet();
-    }
-
-    /**
-     * Create an instance of {@link PersonAddressesGet2Response }
-     * 
-     */
-    public PersonAddressesGet2Response createPersonAddressesGet2Response() {
-        return new PersonAddressesGet2Response();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfDPersonAddresses2 }
-     * 
-     */
-    public ArrayOfDPersonAddresses2 createArrayOfDPersonAddresses2() {
-        return new ArrayOfDPersonAddresses2();
     }
 
     /**
@@ -198,38 +270,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link PersonRequestDocumentSubjectsGetResponse }
-     * 
-     */
-    public PersonRequestDocumentSubjectsGetResponse createPersonRequestDocumentSubjectsGetResponse() {
-        return new PersonRequestDocumentSubjectsGetResponse();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfDPersonRequestDocumentSubjects }
-     * 
-     */
-    public ArrayOfDPersonRequestDocumentSubjects createArrayOfDPersonRequestDocumentSubjects() {
-        return new ArrayOfDPersonRequestDocumentSubjects();
-    }
-
-    /**
-     * Create an instance of {@link PersonDocumentTypesGetResponse }
-     * 
-     */
-    public PersonDocumentTypesGetResponse createPersonDocumentTypesGetResponse() {
-        return new PersonDocumentTypesGetResponse();
-    }
-
-    /**
-     * Create an instance of {@link ArrayOfDPersonDocumentTypes }
-     * 
-     */
-    public ArrayOfDPersonDocumentTypes createArrayOfDPersonDocumentTypes() {
-        return new ArrayOfDPersonDocumentTypes();
-    }
-
-    /**
      * Create an instance of {@link PersonDocumentsGet }
      * 
      */
@@ -262,11 +302,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link PersonAddressesGet2 }
+     * Create an instance of {@link GetLastError }
      * 
      */
-    public PersonAddressesGet2 createPersonAddressesGet2() {
-        return new PersonAddressesGet2();
+    public GetLastError createGetLastError() {
+        return new GetLastError();
     }
 
     /**
@@ -302,59 +342,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link PersonRequestExaminationsGet }
-     * 
-     */
-    public PersonRequestExaminationsGet createPersonRequestExaminationsGet() {
-        return new PersonRequestExaminationsGet();
-    }
-
-    /**
-     * Create an instance of {@link PersonOlympiadsAwardsGet }
-     * 
-     */
-    public PersonOlympiadsAwardsGet createPersonOlympiadsAwardsGet() {
-        return new PersonOlympiadsAwardsGet();
-    }
-
-    /**
-     * Create an instance of {@link DPersonRequestOlympiadsAwards }
-     * 
-     */
-    public DPersonRequestOlympiadsAwards createDPersonRequestOlympiadsAwards() {
-        return new DPersonRequestOlympiadsAwards();
-    }
-
-    /**
-     * Create an instance of {@link DPersonDocumentTypes }
-     * 
-     */
-    public DPersonDocumentTypes createDPersonDocumentTypes() {
-        return new DPersonDocumentTypes();
-    }
-
-    /**
-     * Create an instance of {@link DPersonAddresses2 }
-     * 
-     */
-    public DPersonAddresses2 createDPersonAddresses2() {
-        return new DPersonAddresses2();
-    }
-
-    /**
      * Create an instance of {@link DPersonDocuments }
      * 
      */
     public DPersonDocuments createDPersonDocuments() {
         return new DPersonDocuments();
-    }
-
-    /**
-     * Create an instance of {@link DPersonsFind }
-     * 
-     */
-    public DPersonsFind createDPersonsFind() {
-        return new DPersonsFind();
     }
 
     /**
@@ -390,14 +382,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DPersonDocumentsSubjects }
-     * 
-     */
-    public DPersonDocumentsSubjects createDPersonDocumentsSubjects() {
-        return new DPersonDocumentsSubjects();
-    }
-
-    /**
      * Create an instance of {@link DPersonRequestDocumentSubjects }
      * 
      */
@@ -411,6 +395,54 @@ public class ObjectFactory {
      */
     public DPersonRequestExaminations createDPersonRequestExaminations() {
         return new DPersonRequestExaminations();
+    }
+
+    /**
+     * Create an instance of {@link DPersonRequestOlympiadsAwards }
+     * 
+     */
+    public DPersonRequestOlympiadsAwards createDPersonRequestOlympiadsAwards() {
+        return new DPersonRequestOlympiadsAwards();
+    }
+
+    /**
+     * Create an instance of {@link DPersonDocumentTypes }
+     * 
+     */
+    public DPersonDocumentTypes createDPersonDocumentTypes() {
+        return new DPersonDocumentTypes();
+    }
+
+    /**
+     * Create an instance of {@link DPersonAddresses2 }
+     * 
+     */
+    public DPersonAddresses2 createDPersonAddresses2() {
+        return new DPersonAddresses2();
+    }
+
+    /**
+     * Create an instance of {@link DPersonsFind }
+     * 
+     */
+    public DPersonsFind createDPersonsFind() {
+        return new DPersonsFind();
+    }
+
+    /**
+     * Create an instance of {@link DLastError }
+     * 
+     */
+    public DLastError createDLastError() {
+        return new DLastError();
+    }
+
+    /**
+     * Create an instance of {@link DPersonDocumentsSubjects }
+     * 
+     */
+    public DPersonDocumentsSubjects createDPersonDocumentsSubjects() {
+        return new DPersonDocumentsSubjects();
     }
 
 }
