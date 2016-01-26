@@ -19,6 +19,10 @@ subprojects {
 		mavenCentral()
 	}
 
+	compileJava {
+		options.encoding = "UTF-8"
+	}
+
 	dependencies {
 		compile 'org.springframework.boot:spring-boot-starter-web:1.2.4.RELEASE'
 		compile 'commons-beanutils:commons-beanutils:1.9.2'
