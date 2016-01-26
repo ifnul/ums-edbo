@@ -3,8 +3,11 @@ package org.lnu.ums.service.handler;
 import org.lnu.ums.service.handler.exception.ExceptionThrower;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ua.edboservice.ArrayOfDLastError;
+import ua.edboservice.DLastError;
 import ua.edboservice.EDBOPersonSoap;
 
+import java.text.MessageFormat;
 import java.util.Map;
 
 /**
@@ -21,7 +24,7 @@ public class DefaultExceptionHandler extends BaseExceptionHandler<EDBOPersonSoap
 	
 	@Override
 	public void handle(final String sessionGUID) {
-		/* // todo: fix after appropriate dependencies will be fadded
+		 // todo: fix after appropriate dependencies will be fadded
 		EDBOPersonSoap client = getServiceManager().getWebServiceClient();
 		ArrayOfDLastError lastError = client.getLastError(sessionGUID);
 		
@@ -36,7 +39,7 @@ public class DefaultExceptionHandler extends BaseExceptionHandler<EDBOPersonSoap
 			
 			thrower.throwException(error);
 		}
-		*/
+
 	}
 
 	public void setExceptionThrowers(final Map<Integer, ExceptionThrower> exceptionThrowers) {

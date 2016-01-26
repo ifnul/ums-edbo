@@ -50,9 +50,7 @@ public class BaseEdboService<WEBSERVICE> {
 
 	public <T> T handleResponse(T response, String sessionGUID) {
 		if (response == null) {
-			//exceptionHandler.handle(sessionGUID);
-			// todo: Write exception handler.
-			throw new RuntimeException("Null response from EDEBO");
+			exceptionHandler.handle(sessionGUID);
 		}
 
 		return response;

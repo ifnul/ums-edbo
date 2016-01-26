@@ -23,6 +23,7 @@ import ua.edboservice.EDBOPersonSoap;
 
 import javax.xml.namespace.QName;
 import java.net.URL;
+import java.util.HashMap;
 
 @Configuration
 @ComponentScan({
@@ -112,7 +113,12 @@ public class ServiceConfig {
 
     @Bean(name = "defaultExceptionHandler")
     public ExceptionHandler exceptionHandler() {
-        return new DefaultExceptionHandler();
+        DefaultExceptionHandler exceptionHandler = new DefaultExceptionHandler();
+        //TODO by ima: add all reference betwean code and Error
+        exceptionHandler.setExceptionThrowers(new HashMap<>());
+        exceptionHandler.setServiceManager(edboPersonSoapServiceManager());
+
+        return exceptionHandler;
     }
 
     @Bean(name = "restTemplateJacksonHttpMessageConverter")
