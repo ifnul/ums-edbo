@@ -115,6 +115,7 @@ public class ServiceConfig {
     public ExceptionHandler exceptionHandler() {
         DefaultExceptionHandler exceptionHandler = new DefaultExceptionHandler();
         //TODO by ima: add all reference betwean code and Error
+        // 101 - Сесія заблокована(SessionIsLockedExeptionThrower)
         exceptionHandler.setExceptionThrowers(new HashMap<>());
         exceptionHandler.setServiceManager(edboPersonSoapServiceManager());
 
