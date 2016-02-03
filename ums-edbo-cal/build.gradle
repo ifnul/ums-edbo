@@ -1,0 +1,9 @@
+apply plugin: 'java'
+compileJava {
+    sourceCompatibility = '1.8'
+}
+
+dependencies {
+    compile 'com.netflix.hystrix:hystrix-core:1.4.23'
+    compile 'com.google.guava:guava:19.0'
+}

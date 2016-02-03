@@ -76,3 +76,10 @@ project(':ums-edbo-person') {
 		compile 'org.springframework:spring-context:4.1.6.RELEASE'
 	}
 }
+
+project(':ums-edbo-cal') {
+	dependencies {
+		compile project(':ums-edbo-guides')
+		compile project(':ums-edbo-person')
+	}
+}

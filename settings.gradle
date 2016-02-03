@@ -5,4 +5,5 @@ include ":ums-edbo-service"
 include ":ums-edbo-common"
 include ":ums-edbo-guides"
 include ":ums-edbo-person"
+include ":ums-edbo-cal"
 
