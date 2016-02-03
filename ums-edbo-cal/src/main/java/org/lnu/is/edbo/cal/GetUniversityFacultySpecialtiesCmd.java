@@ -8,11 +8,11 @@ import ua.edboservice.ArrayOfDUniversityFacultetSpecialities;
 public class GetUniversityFacultySpecialtiesCmd extends AbstractGetEdboCommand<ArrayOfDUniversityFacultetSpecialities> {
 
     private String sessionGUID;
+    private int idLanguage;
+    private String actualDate;
     private String universityKode;
     private String universityFacultetKode;
     private String specCode;
-    private int idLanguage;
-    private String actualDate;
     private int idPersonRequestSeasons;
     private int idPersonEducationForm;
     private String universitySpecialitiesKode;

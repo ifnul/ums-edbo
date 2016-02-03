@@ -41,10 +41,10 @@ public class GuidesController extends BaseController {
     }
 
     @RequestMapping("/faculties/subjects")
-    public ArrayOfDUniversityFacultetSpecialitiesSubjects2 getUniversityFacultySpecialtiesSubjects(@RequestParam("SessionGUID") String sessionGUID,
-                                                                                          @RequestParam("Id_Language") int idLanguage,
-                                                                                          @RequestParam("ActualDate") String actualDate,
-                                                                                          @RequestParam("UniversitySpecialitiesKode") String universitySpecialitiesKode) {
+    public ArrayOfDUniversityFacultetSpecialitiesSubjects2 getUniversityFacultySpecialtiesSubjects(@RequestParam(value = "SessionGUID", required = true) String sessionGUID,
+                                                                                          @RequestParam(value = "Id_Language", required = true) int idLanguage,
+                                                                                          @RequestParam(value = "ActualDate", required = true) String actualDate,
+                                                                                          @RequestParam(value = "UniversitySpecialitiesKode", required = false) String universitySpecialitiesKode) {
         return guidesService.getUniversityFacultySpecialtiesSubjects(sessionGUID, idLanguage, actualDate, universitySpecialitiesKode);
     }
 
