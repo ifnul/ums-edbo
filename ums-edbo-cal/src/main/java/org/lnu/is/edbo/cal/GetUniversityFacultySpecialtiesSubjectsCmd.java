@@ -13,7 +13,7 @@ public class GetUniversityFacultySpecialtiesSubjectsCmd extends AbstractGetEdboC
     private String universitySpecialitiesKode;
 
     public GetUniversityFacultySpecialtiesSubjectsCmd(String baseUrl, RestTemplate restTemplate) {
-        super("GetUniversityFacultySpecialtiesCmd", baseUrl, ArrayOfDUniversityFacultetSpecialitiesSubjects2.class, restTemplate);
+        super("GetUniversityFacultySpecialtiesSubjectsCmd", baseUrl, ArrayOfDUniversityFacultetSpecialitiesSubjects2.class, restTemplate);
     }
 
     @Override

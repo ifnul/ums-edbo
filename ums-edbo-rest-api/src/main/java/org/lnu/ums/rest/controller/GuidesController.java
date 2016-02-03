@@ -63,7 +63,7 @@ public class GuidesController extends BaseController {
     }
 
     @RequestMapping("/languages")
-    public ArrayOfDLanguages getLanguages(@RequestParam("SessionGUID") String sessionGUID) {
+    public ArrayOfDLanguages getLanguages(@RequestParam(value = "SessionGUID", required = true) String sessionGUID) {
         return guidesService.getLanguages(sessionGUID);
     }
 

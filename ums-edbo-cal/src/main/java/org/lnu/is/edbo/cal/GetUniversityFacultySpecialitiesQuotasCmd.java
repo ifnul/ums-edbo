@@ -14,7 +14,7 @@ public class GetUniversityFacultySpecialitiesQuotasCmd extends AbstractGetEdboCo
     private String idQuota;
 
     public GetUniversityFacultySpecialitiesQuotasCmd(String baseUrl, RestTemplate restTemplate) {
-        super("GetUniversityFacultySpecialtiesCmd", baseUrl, ArrayOfDUniversityFacultetSpecialitiesQuotas.class, restTemplate);
+        super("GetUniversityFacultySpecialitiesQuotasCmd", baseUrl, ArrayOfDUniversityFacultetSpecialitiesQuotas.class, restTemplate);
     }
 
     @Override
