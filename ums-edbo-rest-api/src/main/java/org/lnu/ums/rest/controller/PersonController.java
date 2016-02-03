@@ -137,11 +137,11 @@ public class PersonController extends BaseController {
 
 
     @RequestMapping(value = "/olympiads/awards")
-    public ArrayOfDPersonOlympiadsAwards persontOlympiadAwards(@RequestParam(value ="SessionGUID") String sessionGUID,
-                                                               @RequestParam(value ="ActualDate") String actualDate,
-                                                               @RequestParam(value ="Id_Language") int idLanguage,
-                                                               @RequestParam(value ="PersonCodeU") String personCodeU,
-                                                               @RequestParam(value ="Id_PersonRequestSeasons") int idPersonRequestSeasons) {
-        return personService.getOlympiadAwards(sessionGUID, actualDate, idLanguage, personCodeU, idPersonRequestSeasons);
+    public ArrayOfDPersonOlympiadsAwards persontOlympiadAwards(@RequestParam(value = "SessionGUID", required = true) String sessionGUID,
+                                                               @RequestParam(value = "ActualDate", required = true) String actualDate,
+                                                               @RequestParam(value = "Id_Language", required = true) int languageId,
+                                                               @RequestParam(value = "PersonCodeU", required = false) String personCodeU,
+                                                               @RequestParam(value ="Id_PersonRequestSeasons", required = false, defaultValue = "0") int idPersonRequestSeasons) {
+        return personService.getOlympiadAwards(sessionGUID, actualDate, languageId, personCodeU, idPersonRequestSeasons);
     }
 }
