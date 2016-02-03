@@ -105,7 +105,8 @@ public class GuidesController extends BaseController {
     }
 
     @RequestMapping("/login")
-    public String login(@RequestParam("User") String user, @RequestParam("Password") String password) {
+    public String login(@RequestParam(value = "User", required = true) String user,
+                        @RequestParam(value = "Password", required = true) String password) {
         return guidesService.login(user, password);
     }
 
