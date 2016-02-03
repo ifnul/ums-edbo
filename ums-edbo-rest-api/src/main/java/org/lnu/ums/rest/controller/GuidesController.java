@@ -89,9 +89,9 @@ public class GuidesController extends BaseController {
     }
 
     @RequestMapping("/spec/specializations")
-    public ArrayOfDSpecSpecialization getSpecSpecializations(@RequestParam("SessionGUID") String sessionGUID,
-                                                             @RequestParam("SpecDirectionsCode") String specDirectionsCode,
-                                                             @RequestParam("SpecSpecialityCode") String specSpecialityCode) {
+    public ArrayOfDSpecSpecialization getSpecSpecializations(@RequestParam(value = "SessionGUID", required = true) String sessionGUID,
+                                                             @RequestParam(value = "SpecDirectionsCode", required = false) String specDirectionsCode,
+                                                             @RequestParam(value = "SpecSpecialityCode", required = false) String specSpecialityCode) {
         return guidesService.getSpecSpecializations(sessionGUID, specDirectionsCode, specSpecialityCode);
     }
 
