@@ -4,16 +4,17 @@ import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
 import org.lnu.is.edbo.cal.AbstractGetEdboCommand;
 import org.springframework.web.client.RestTemplate;
-import ua.edboservice.ArrayOfDPersonDocumentTypes;
+import ua.edboservice.ArrayOfDPersonRequestQuotas;
 
-public class GetPersonRequestDocumentTypes extends AbstractGetEdboCommand<ArrayOfDPersonDocumentTypes> {
+public class GetPersonQuotasCmd extends AbstractGetEdboCommand<ArrayOfDPersonRequestQuotas> {
 
     private String sessionGUID;
     private int idLanguage;
     private String actualDate;
+    private int personId;
 
-    public GetPersonRequestDocumentTypes(String baseUrl, RestTemplate restTemplate) {
-        super("GetPersonRequestDocumentTypes", baseUrl, ArrayOfDPersonDocumentTypes.class, restTemplate);
+    public GetPersonQuotasCmd(String baseUrl, RestTemplate restTemplate) {
+        super("GetPersonQuotasCmd", baseUrl, ArrayOfDPersonRequestQuotas.class, restTemplate);
     }
 
     @Override
@@ -23,13 +24,14 @@ public class GetPersonRequestDocumentTypes extends AbstractGetEdboCommand<ArrayO
         put(params, "SessionGUID", sessionGUID);
         put(params, "Id_Language", String.valueOf(idLanguage));
         put(params, "ActualDate", actualDate);
+        put(params, "Id_PersonRequest", String.valueOf(personId));
 
         return params;
     }
 
     @Override
     protected String getApiUri() {
-        return "/api/persons/documents/types";
+        return "/api/persons/quotas";
     }
 
     public void setActualDate(String actualDate) {
@@ -38,6 +40,10 @@ public class GetPersonRequestDocumentTypes extends AbstractGetEdboCommand<ArrayO
 
     public void setIdLanguage(int idLanguage) {
         this.idLanguage = idLanguage;
+    }
+
+    public void setPersonId(int personId) {
+        this.personId = personId;
     }
 
     public void setSessionGUID(String sessionGUID) {

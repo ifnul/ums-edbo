@@ -88,10 +88,10 @@ public class PersonController extends BaseController {
     }
 
     @RequestMapping(value = "/quotas")
-    public ArrayOfDPersonRequestQuotas getPersonQuotas(@RequestParam("SessionGUID") String sessionGUID,
-                                                    @RequestParam("ActualDate") String actualDate,
-                                                    @RequestParam("Id_Language") int languageId,
-                                                    @RequestParam("Id_PersonRequest") int personId) {
+    public ArrayOfDPersonRequestQuotas getPersonQuotas(@RequestParam(value = "SessionGUID", required = true) String sessionGUID,
+                                                       @RequestParam(value = "ActualDate", required = true) String actualDate,
+                                                       @RequestParam(value = "Id_Language", required = true) int languageId,
+                                                       @RequestParam(value = "Id_PersonRequest", required = false, defaultValue = "0") int personId) {
         return personService.getPersonQuotas(sessionGUID, actualDate, languageId, personId);
     }
 
@@ -101,7 +101,7 @@ public class PersonController extends BaseController {
                                                                          @RequestParam("ActualDate") String actualDate,
                                                                          @RequestParam("Id_Language") int languageId,
                                                                          @RequestParam("Id_PersonRequest") int personId,
-                                                                         @RequestParam("idPersonDocument") int personDocumentId,
+                                                                         @RequestParam("Id_dPersonDocument") int personDocumentId,
                                                                          @RequestParam("Id_PersonDocumentType") int personDocumentTypeId
                                                                          ) {
         return personService.getPersonDocumentSubjects(sessionGUID, actualDate, languageId, personDocumentId, personId, personDocumentTypeId);
