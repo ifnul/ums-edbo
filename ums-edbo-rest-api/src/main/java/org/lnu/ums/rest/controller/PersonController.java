@@ -106,32 +106,32 @@ public class PersonController extends BaseController {
         return personService.getPersonDocumentSubjects(sessionGUID, actualDate, languageId, personDocumentId, personId, personDocumentTypeId);
     }
 
-    @RequestMapping(value = "/addresses2")
-    public ArrayOfDPersonAddresses2 getPersonsAdresses2(@RequestParam("SessionGUID") String sessionGUID,
-                                                        @RequestParam("ActualDate") String actualDate,
-                                                        @RequestParam("Id_Language") int languageId,
-                                                        @RequestParam("PersonCodeU") String personCodeU,
-                                                        @RequestParam("Id_PersonAddress") int personAddressId) {
+    @RequestMapping(value = "/addresses")
+    public ArrayOfDPersonAddresses2 getPersonsAdresses(@RequestParam(value = "SessionGUID", required = true) String sessionGUID,
+                                                       @RequestParam(value = "ActualDate", required = true) String actualDate,
+                                                       @RequestParam(value = "Id_Language", required = true) int languageId,
+                                                       @RequestParam(value = "PersonCodeU",required = false) String personCodeU,
+                                                       @RequestParam(value = "Id_PersonAddress", required = false, defaultValue = "0") int personAddressId) {
         return personService.getPersonAddresses2(sessionGUID, actualDate, languageId, personCodeU, personAddressId);
     }
 
     @RequestMapping(value = "/documents")
-    public ArrayOfDPersonDocuments getPersonDocuments(@RequestParam(value = "SessionGUID") String sessionGUID,
-                                                      @RequestParam(value = "ActualDate") String actualDate,
-                                                      @RequestParam(value = "Id_Language") int idLanguage,
-                                                      @RequestParam(value = "PersonCodeU") String personCodeU,
-                                                      @RequestParam(value = "Id_PersonDocumentType") int idPersonDocumentType,
-                                                      @RequestParam(value = "Id_PersonDocument") int idPersonDocument,
-                                                      @RequestParam(value = "UniversityKode") String universityKode,
-                                                      @RequestParam(value = "IsEntrantDocument") int isEntrantDocument) {
-        return personService.getPersonDocuments(sessionGUID, actualDate, idLanguage, personCodeU, idPersonDocumentType, idPersonDocument, universityKode, isEntrantDocument);
+    public ArrayOfDPersonDocuments getPersonDocuments(@RequestParam(value = "SessionGUID", required = true) String sessionGUID,
+                                                      @RequestParam(value = "ActualDate", required = true) String actualDate,
+                                                      @RequestParam(value = "Id_Language", required = true) int languageId,
+                                                      @RequestParam(value = "PersonCodeU", required = false) String personCodeU,
+                                                      @RequestParam(value = "Id_PersonDocumentType", required = false, defaultValue = "0") int idPersonDocumentType,
+                                                      @RequestParam(value = "Id_PersonDocument", required = false, defaultValue = "0") int idPersonDocument,
+                                                      @RequestParam(value = "UniversityKode", required = false) String universityKode,
+                                                      @RequestParam(value = "IsEntrantDocument", required = false, defaultValue = "0") int isEntrantDocument) {
+        return personService.getPersonDocuments(sessionGUID, actualDate, languageId, personCodeU, idPersonDocumentType, idPersonDocument, universityKode, isEntrantDocument);
     }
 
     @RequestMapping(value = "/examinations")
-    public ArrayOfDPersonRequestExaminations getPersonExaminations(@RequestParam("SessionGUID") String sessionGUID,
-                                                                   @RequestParam("ActualDate") String actualDate,
-                                                                   @RequestParam("Id_Language") int languageId,
-                                                                   @RequestParam("Id_PersonRequest") int personId) {
+    public ArrayOfDPersonRequestExaminations getPersonRequestExaminations(@RequestParam(value = "SessionGUID", required = true) String sessionGUID,
+                                                                          @RequestParam(value = "ActualDate", required = true) String actualDate,
+                                                                          @RequestParam(value = "Id_Language", required = true) int languageId,
+                                                                          @RequestParam(value = "Id_PersonRequest", required = false, defaultValue = "0") int personId) {
         return personService.getPersonExaminations(sessionGUID, actualDate, languageId, personId);
     }
 
