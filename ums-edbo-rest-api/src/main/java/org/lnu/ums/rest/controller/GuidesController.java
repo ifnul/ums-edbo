@@ -68,22 +68,22 @@ public class GuidesController extends BaseController {
     }
 
     @RequestMapping("/faculties")
-    public ArrayOfDUniversityFacultetsRequests2 getFaculties2(@RequestParam("SessionGUID") String sessionGUID,
-                                                              @RequestParam("Id_PersonRequestSeasons") int idPersonRequestSeasons,
-                                                              @RequestParam("UniversityFacultetKode") String universityFacultetKode,
-                                                              @RequestParam("UniversitySpecialitiesKode") String universitySpecialitiesKode,
-                                                              @RequestParam("Id_Language") int idLanguage,
-                                                              @RequestParam("ActualDate") String actualDate,
-                                                              @RequestParam("PersonCodeU") String personCodeU,
-                                                              @RequestParam("Hundred") int hundred,
-                                                              @RequestParam("MinDate") String minDate,
-                                                              @RequestParam("Id_PersonRequestStatusType1") int idPersonRequestStatusType1,
-                                                              @RequestParam("Id_PersonRequestStatusType2") int idPersonRequestStatusType2,
-                                                              @RequestParam("Id_PersonRequestStatusType3") int idPersonRequestStatusType3,
-                                                              @RequestParam("Id_PersonEducationForm") int idPersonEducationForm,
-                                                              @RequestParam("UniversityKode") String universityKode,
-                                                              @RequestParam("Id_Qualification") int idQualification,
-                                                              @RequestParam("Filters") String filters) {
+    public ArrayOfDUniversityFacultetsRequests2 getFacultiesRequests(@RequestParam(value = "SessionGUID", required = true) String sessionGUID,
+                                                                     @RequestParam(value = "ActualDate", required = true) String actualDate,
+                                                                     @RequestParam(value = "Id_Language", required = true) int idLanguage,
+                                                                     @RequestParam(value = "Id_PersonRequestSeasons", required = false) int idPersonRequestSeasons,
+                                                                     @RequestParam(value = "UniversityFacultetKode", required = false) String universityFacultetKode,
+                                                                     @RequestParam(value = "UniversitySpecialitiesKode", required = false) String universitySpecialitiesKode,
+                                                                     @RequestParam(value = "PersonCodeU", required = false) String personCodeU,
+                                                                     @RequestParam(value = "Hundred",required = false, defaultValue = "0") int hundred,
+                                                                     @RequestParam(value = "MinDate", required = false) String minDate,
+                                                                     @RequestParam(value = "Id_PersonRequestStatusType1",required = false) int idPersonRequestStatusType1,
+                                                                     @RequestParam(value = "Id_PersonRequestStatusType2", required = false) int idPersonRequestStatusType2,
+                                                                     @RequestParam(value = "Id_PersonRequestStatusType3", required = false) int idPersonRequestStatusType3,
+                                                                     @RequestParam(value = "Id_PersonEducationForm", required = false) int idPersonEducationForm,
+                                                                     @RequestParam(value = "UniversityKode", required = false) String universityKode,
+                                                                     @RequestParam(value = "Id_Qualification", required = false) int idQualification,
+                                                                     @RequestParam(value = "Filters", required = false) String filters) {
         return guidesService.getFaculties2(sessionGUID, idPersonRequestSeasons, universityFacultetKode, universitySpecialitiesKode, idLanguage, actualDate, personCodeU, hundred,
                 minDate, idPersonRequestStatusType1, idPersonRequestStatusType2, idPersonRequestStatusType3, idPersonEducationForm, universityKode, idQualification, filters);
     }
