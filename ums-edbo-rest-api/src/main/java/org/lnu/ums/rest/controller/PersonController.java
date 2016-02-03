@@ -31,10 +31,10 @@ public class PersonController extends BaseController {
     private PersonService personService;
 
     @RequestMapping(value = "/requests/benefits")
-    public ArrayOfDPersonRequestBenefits getBenefits(@RequestParam("SessionGUID") String sessionGUID,
-                                                             @RequestParam("ActualDate") String actualDate,
-                                                             @RequestParam("Id_Language") int languageId,
-                                                             @RequestParam("Id_PersonRequest") int personId) {
+    public ArrayOfDPersonRequestBenefits getBenefits(@RequestParam(value = "SessionGUID", required = true) String sessionGUID,
+                                                             @RequestParam(value = "ActualDate", required = true) String actualDate,
+                                                             @RequestParam(value = "Id_Language", required = true) int languageId,
+                                                             @RequestParam(value = "Id_PersonRequest", required = false, defaultValue = "0") int personId) {
         LOGGER.info("Getting person Benefits, session Guid: {}, actualDate: {}, languageId: {}, personId: {}", sessionGUID, actualDate, languageId, personId);
         return personService.getRequestBenefits(sessionGUID, actualDate, languageId, personId);
     }

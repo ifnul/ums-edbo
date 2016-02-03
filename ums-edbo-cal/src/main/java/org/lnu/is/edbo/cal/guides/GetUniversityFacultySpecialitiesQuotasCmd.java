@@ -1,19 +1,21 @@
-package org.lnu.is.edbo.cal;
+package org.lnu.is.edbo.cal.guides;
 
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
+import org.lnu.is.edbo.cal.AbstractGetEdboCommand;
 import org.springframework.web.client.RestTemplate;
-import ua.edboservice.ArrayOfDUniversityFacultetSpecialitiesSubjects2;
+import ua.edboservice.ArrayOfDUniversityFacultetSpecialitiesQuotas;
 
-public class GetUniversityFacultySpecialtiesSubjectsCmd extends AbstractGetEdboCommand<ArrayOfDUniversityFacultetSpecialitiesSubjects2> {
+public class GetUniversityFacultySpecialitiesQuotasCmd extends AbstractGetEdboCommand<ArrayOfDUniversityFacultetSpecialitiesQuotas> {
 
     private String sessionGUID;
     private int idLanguage;
     private String actualDate;
     private String universitySpecialitiesKode;
+    private String idQuota;
 
-    public GetUniversityFacultySpecialtiesSubjectsCmd(String baseUrl, RestTemplate restTemplate) {
-        super("GetUniversityFacultySpecialtiesSubjectsCmd", baseUrl, ArrayOfDUniversityFacultetSpecialitiesSubjects2.class, restTemplate);
+    public GetUniversityFacultySpecialitiesQuotasCmd(String baseUrl, RestTemplate restTemplate) {
+        super("GetUniversityFacultySpecialitiesQuotasCmd", baseUrl, ArrayOfDUniversityFacultetSpecialitiesQuotas.class, restTemplate);
     }
 
     @Override
@@ -24,13 +26,14 @@ public class GetUniversityFacultySpecialtiesSubjectsCmd extends AbstractGetEdboC
         put(params, "Id_Language", String.valueOf(idLanguage));
         put(params, "ActualDate", actualDate);
         put(params, "UniversitySpecialitiesKode", universitySpecialitiesKode);
+        put(params, "Id_Quota", idQuota);
 
         return params;
     }
 
     @Override
     protected String getApiUri() {
-        return "/api/guides/faculties/subjects";
+        return "/api/guides/faculties/specialties/quotas";
     }
 
     public void setActualDate(String actualDate) {
@@ -39,6 +42,10 @@ public class GetUniversityFacultySpecialtiesSubjectsCmd extends AbstractGetEdboC
 
     public void setIdLanguage(int idLanguage) {
         this.idLanguage = idLanguage;
+    }
+
+    public void setIdQuota(String idQuota) {
+        this.idQuota = idQuota;
     }
 
     public void setSessionGUID(String sessionGUID) {

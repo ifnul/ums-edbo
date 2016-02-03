@@ -1,16 +1,17 @@
-package org.lnu.is.edbo.cal;
+package org.lnu.is.edbo.cal.guides;
 
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
+import org.lnu.is.edbo.cal.AbstractGetEdboCommand;
 import org.springframework.web.client.RestTemplate;
-import ua.edboservice.ArrayOfDLanguages;
 
-public class GetLanguagesCmd extends AbstractGetEdboCommand<ArrayOfDLanguages> {
+// todo: ivanursul: Change to DELETE http method
+public class LogoutCmd extends AbstractGetEdboCommand<String> {
 
     private String sessionGUID;
 
-    public GetLanguagesCmd(String baseUrl, RestTemplate restTemplate) {
-        super("GetLanguagesCmd", baseUrl, ArrayOfDLanguages.class, restTemplate);
+    public LogoutCmd(String baseUrl, RestTemplate restTemplate) {
+        super("GetUniversityFacultySpecialtiesCmd", baseUrl, String.class, restTemplate);
     }
 
     @Override
@@ -22,7 +23,7 @@ public class GetLanguagesCmd extends AbstractGetEdboCommand<ArrayOfDLanguages> {
 
     @Override
     protected String getApiUri() {
-        return "/api/guides/languages";
+        return "/api/guides/logout";
     }
 
     public void setSessionGUID(String sessionGUID) {

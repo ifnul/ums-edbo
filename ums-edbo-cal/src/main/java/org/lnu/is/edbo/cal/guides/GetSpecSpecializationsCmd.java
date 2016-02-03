@@ -1,7 +1,8 @@
-package org.lnu.is.edbo.cal;
+package org.lnu.is.edbo.cal.guides;
 
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
+import org.lnu.is.edbo.cal.AbstractGetEdboCommand;
 import org.springframework.web.client.RestTemplate;
 import ua.edboservice.ArrayOfDSpecSpecialization;
 
