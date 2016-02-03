@@ -46,6 +46,7 @@ task wrapper(type: Wrapper) {
 project(':ums-edbo-rest-api') {
 	dependencies {
 		compile project(':ums-edbo-service')
+		compile project(':ums-edbo-cal')
 	}
 }
 
