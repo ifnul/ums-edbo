@@ -56,16 +56,17 @@ public class PersonController extends BaseController {
     }
 
     @RequestMapping
-    public ArrayOfDPersonsFind getPersons(@RequestParam("SessionGUID") String sessionGUID,
-                                       @RequestParam("ActualDate") String actualDate,
-                                       @RequestParam("Id_Language") int idLanguage,
-                                       @RequestParam("fioMask") String fioMask,
-                                       @RequestParam("documentSeries") String documentSeries,
-                                       @RequestParam("documentNumber") String documentNumber,
-                                       @RequestParam("idsDocumentTypes") String idsDocumentTypes,
-                                       @RequestParam("hundred") int hundred,
-                                       @RequestParam("personCodeU") String personCodeU,
-                                       @RequestParam("filters") String filters) {
+    public ArrayOfDPersonsFind getPersons(@RequestParam(value = "SessionGUID",required = false) String sessionGUID,
+                                       @RequestParam(value = "ActualDate",required = false) String actualDate,
+                                       @RequestParam(value = "Id_Language",required = false) int idLanguage,
+                                       @RequestParam(value = "fioMask", required = false) String fioMask,
+                                       @RequestParam(value = "documentSeries", required = false) String documentSeries,
+                                       @RequestParam(value = "documentNumber", required = false) String documentNumber,
+                                       @RequestParam(value = "idsDocumentTypes", required = false) String idsDocumentTypes,
+                                       @RequestParam(value = "hundred", required = false, defaultValue = "0") int hundred,
+                                       @RequestParam(value = "personCodeU", required = false) String personCodeU,
+                                       @RequestParam(value = "filters", required = false) String filters) {
+
         return personService.getPersons(sessionGUID,
                 actualDate, idLanguage, fioMask, documentSeries,
                 documentNumber, idsDocumentTypes, hundred, personCodeU, filters);
