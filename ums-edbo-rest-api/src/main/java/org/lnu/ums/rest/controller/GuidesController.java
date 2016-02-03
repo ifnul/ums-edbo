@@ -14,7 +14,6 @@ import ua.edboservice.ArrayOfDUniversityFacultetSpecialitiesSubjects2;
 import ua.edboservice.ArrayOfDUniversityFacultetsRequests2;
 
 import javax.annotation.Resource;
-import javax.jws.WebParam;
 
 @RestController
 @RequestMapping(Constants.API_URL + "/guides")
@@ -24,18 +23,18 @@ public class GuidesController extends BaseController {
     public GuidesService guidesService;
 
     @RequestMapping("/faculties/specialties")
-    public ArrayOfDUniversityFacultetSpecialities getUniversityFacultySpecialties(@RequestParam(value ="SessionGUID") String sessionGUID,
-                                                                                  @RequestParam(value ="UniversityKode") String universityKode,
-                                                                                  @RequestParam(value ="UniversityFacultetKode") String universityFacultetKode,
-                                                                                  @RequestParam(value ="SpecCode") String specCode,
-                                                                                  @RequestParam(value ="Id_Language") int idLanguage,
-                                                                                  @RequestParam(value ="ActualDate") String actualDate,
-                                                                                  @RequestParam(value ="Id_PersonRequestSeasons") int idPersonRequestSeasons,
-                                                                                  @RequestParam(value ="Id_PersonEducationForm") int idPersonEducationForm,
-                                                                                  @RequestParam(value ="UniversitySpecialitiesKode") String universitySpecialitiesKode,
-                                                                                  @RequestParam(value ="SpecDirectionsCode") String specDirectionsCode,
-                                                                                  @RequestParam(value ="SpecSpecialityCode") String specSpecialityCode,
-                                                                                  @RequestParam(value ="Filters") String filters) {
+    public ArrayOfDUniversityFacultetSpecialities getUniversityFacultySpecialties(@RequestParam(value ="SessionGUID", required = true) String sessionGUID,
+                                                                                  @RequestParam(value ="Id_Language", required = true) int idLanguage,
+                                                                                  @RequestParam(value ="ActualDate", required = true) String actualDate,
+                                                                                  @RequestParam(value ="UniversityKode", required = false) String universityKode,
+                                                                                  @RequestParam(value ="UniversityFacultetKode", required = false) String universityFacultetKode,
+                                                                                  @RequestParam(value ="SpecCode", required = false) String specCode,
+                                                                                  @RequestParam(value ="Id_PersonRequestSeasons", required = false, defaultValue = "0") int idPersonRequestSeasons,
+                                                                                  @RequestParam(value ="Id_PersonEducationForm", required = false, defaultValue = "0") int idPersonEducationForm,
+                                                                                  @RequestParam(value ="UniversitySpecialitiesKode", required = false) String universitySpecialitiesKode,
+                                                                                  @RequestParam(value ="SpecDirectionsCode", required = false) String specDirectionsCode,
+                                                                                  @RequestParam(value ="SpecSpecialityCode", required = false) String specSpecialityCode,
+                                                                                  @RequestParam(value ="Filters", required = false) String filters) {
         return guidesService.getUniversityFacultySpecialties(sessionGUID, universityKode, universityFacultetKode,
                 specCode, idLanguage, actualDate, idPersonRequestSeasons, idPersonEducationForm,
                 universitySpecialitiesKode, specDirectionsCode, specSpecialityCode, filters);

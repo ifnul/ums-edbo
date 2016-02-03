@@ -20,44 +20,26 @@ public class GetUniversityFacultySpecialtiesCmd extends AbstractGetEdboCommand<A
     private String specSpecialityCode;
     private String filters;
 
-    public GetUniversityFacultySpecialtiesCmd(String baseUrl, RestTemplate restTemplate,
-                                              String sessionGUID, String universityKode,
-                                              String universityFacultetKode, String specCode,
-                                              int idLanguage, String actualDate,
-                                              int idPersonRequestSeasons, int idPersonEducationForm,
-                                              String universitySpecialitiesKode, String specDirectionsCode,
-                                              String specSpecialityCode, String filters) {
+    public GetUniversityFacultySpecialtiesCmd(String baseUrl, RestTemplate restTemplate) {
         super("GetUniversityFacultySpecialtiesCmd", baseUrl, ArrayOfDUniversityFacultetSpecialities.class, restTemplate);
-        this.sessionGUID = sessionGUID;
-        this.universityKode = universityKode;
-        this.universityFacultetKode = universityFacultetKode;
-        this.specCode = specCode;
-        this.idLanguage = idLanguage;
-        this.actualDate = actualDate;
-        this.idPersonRequestSeasons = idPersonRequestSeasons;
-        this.idPersonEducationForm = idPersonEducationForm;
-        this.universitySpecialitiesKode = universitySpecialitiesKode;
-        this.specDirectionsCode = specDirectionsCode;
-        this.specSpecialityCode = specSpecialityCode;
-        this.filters = filters;
     }
 
     @Override
     protected Multimap<String, String> getParams() {
         Multimap<String, String> params = ArrayListMultimap.create();
 
-        params.put("SessionGUID", sessionGUID);
-        params.put("UniversityKode", universityKode);
-        params.put("UniversityFacultetKode", universityFacultetKode);
-        params.put("SpecCode", specCode);
-        params.put("Id_Language", String.valueOf(idLanguage));
-        params.put("ActualDate", actualDate);
-        params.put("Id_PersonRequestSeasons", String.valueOf(idPersonRequestSeasons));
-        params.put("Id_PersonEducationForm", String.valueOf(idPersonEducationForm));
-        params.put("UniversitySpecialitiesKode", universitySpecialitiesKode);
-        params.put("SpecDirectionsCode", specDirectionsCode);
-        params.put("SpecSpecialityCode", specSpecialityCode);
-        params.put("Filters", filters);
+        put(params, "SessionGUID", sessionGUID);
+        put(params, "UniversityKode", universityKode);
+        put(params, "UniversityFacultetKode", universityFacultetKode);
+        put(params, "SpecCode", specCode);
+        put(params, "Id_Language", String.valueOf(idLanguage));
+        put(params, "ActualDate", actualDate);
+        put(params, "Id_PersonRequestSeasons", String.valueOf(idPersonRequestSeasons));
+        put(params, "Id_PersonEducationForm", String.valueOf(idPersonEducationForm));
+        put(params, "UniversitySpecialitiesKode", universitySpecialitiesKode);
+        put(params, "SpecDirectionsCode", specDirectionsCode);
+        put(params, "SpecSpecialityCode", specSpecialityCode);
+        put(params, "Filters", filters);
 
         return params;
     }
@@ -65,5 +47,53 @@ public class GetUniversityFacultySpecialtiesCmd extends AbstractGetEdboCommand<A
     @Override
     protected String getApiUri() {
         return "/api/guides/faculties/specialties";
+    }
+
+    public void setActualDate(String actualDate) {
+        this.actualDate = actualDate;
+    }
+
+    public void setFilters(String filters) {
+        this.filters = filters;
+    }
+
+    public void setIdLanguage(int idLanguage) {
+        this.idLanguage = idLanguage;
+    }
+
+    public void setIdPersonEducationForm(int idPersonEducationForm) {
+        this.idPersonEducationForm = idPersonEducationForm;
+    }
+
+    public void setIdPersonRequestSeasons(int idPersonRequestSeasons) {
+        this.idPersonRequestSeasons = idPersonRequestSeasons;
+    }
+
+    public void setSessionGUID(String sessionGUID) {
+        this.sessionGUID = sessionGUID;
+    }
+
+    public void setSpecCode(String specCode) {
+        this.specCode = specCode;
+    }
+
+    public void setSpecDirectionsCode(String specDirectionsCode) {
+        this.specDirectionsCode = specDirectionsCode;
+    }
+
+    public void setSpecSpecialityCode(String specSpecialityCode) {
+        this.specSpecialityCode = specSpecialityCode;
+    }
+
+    public void setUniversityFacultetKode(String universityFacultetKode) {
+        this.universityFacultetKode = universityFacultetKode;
+    }
+
+    public void setUniversityKode(String universityKode) {
+        this.universityKode = universityKode;
+    }
+
+    public void setUniversitySpecialitiesKode(String universitySpecialitiesKode) {
+        this.universitySpecialitiesKode = universitySpecialitiesKode;
     }
 }

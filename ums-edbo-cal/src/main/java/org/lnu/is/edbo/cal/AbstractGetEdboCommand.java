@@ -9,6 +9,8 @@ import org.springframework.http.HttpMethod;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Objects;
+
 import static java.util.stream.Collectors.joining;
 
 public abstract class AbstractGetEdboCommand<T> extends HystrixCommand<T> {
@@ -58,5 +60,11 @@ public abstract class AbstractGetEdboCommand<T> extends HystrixCommand<T> {
         HttpEntity<T> entity = new HttpEntity<>(getHeaders());
 
         return restTemplate.exchange(url, HttpMethod.GET, entity, clz).getBody();
+    }
+
+    protected void put(Multimap<String, String> params, String paramName, String paramValue) {
+        if (Objects.nonNull(paramValue)) {
+            params.put(paramName, paramValue);
+        }
     }
 }
