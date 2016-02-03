@@ -58,7 +58,7 @@ public class GuidesController extends BaseController {
     }
 
     @RequestMapping("/logout")
-    public String logout(@RequestParam("SessionGUID") String sessionGUID) {
+    public String logout(@RequestParam(value = "SessionGUID", required = true) String sessionGUID) {
         return guidesService.logout(sessionGUID);
     }
 
