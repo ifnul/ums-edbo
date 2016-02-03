@@ -49,11 +49,11 @@ public class GuidesController extends BaseController {
     }
 
     @RequestMapping("/faculties/specialties/quotas")
-    public ArrayOfDUniversityFacultetSpecialitiesQuotas getUniversityFacultySpecialitiesQuotas(@RequestParam(value ="SessionGUID") String sessionGUID,
-                                                                                               @RequestParam(value ="Id_Language") int idLanguage,
-                                                                                               @RequestParam(value ="ActualDate") String actualDate,
-                                                                                               @RequestParam(value ="UniversitySpecialitiesKode") String universitySpecialitiesKode,
-                                                                                               @RequestParam(value ="Id_Quota") int idQuota) {
+    public ArrayOfDUniversityFacultetSpecialitiesQuotas getUniversityFacultySpecialitiesQuotas(@RequestParam(value ="SessionGUID", required = true) String sessionGUID,
+                                                                                               @RequestParam(value ="Id_Language", required = true) int idLanguage,
+                                                                                               @RequestParam(value ="ActualDate", required = true) String actualDate,
+                                                                                               @RequestParam(value ="UniversitySpecialitiesKode", required = false) String universitySpecialitiesKode,
+                                                                                               @RequestParam(value ="Id_Quota", required = false, defaultValue = "0") int idQuota) {
         return guidesService.getUniversityFacultySpecialitiesQuotas(sessionGUID, idLanguage, actualDate, universitySpecialitiesKode, idQuota);
     }
 
