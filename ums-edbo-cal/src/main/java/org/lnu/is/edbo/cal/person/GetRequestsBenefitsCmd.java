@@ -4,20 +4,17 @@ import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
 import org.lnu.is.edbo.cal.AbstractGetEdboCommand;
 import org.springframework.web.client.RestTemplate;
-import ua.edboservice.ArrayOfDPersonBenefits;
+import ua.edboservice.ArrayOfDPersonRequestBenefits;
 
-/**
- * @since 2/3/16
- */
-public class GetBenefitsCmd extends AbstractGetEdboCommand<ArrayOfDPersonBenefits> {
+public class GetRequestsBenefitsCmd extends AbstractGetEdboCommand<ArrayOfDPersonRequestBenefits> {
 
     private String sessionGUID;
     private int idLanguage;
     private String actualDate;
     private int personId;
 
-    public GetBenefitsCmd(String baseUrl, RestTemplate restTemplate) {
-        super("GetBenefitsCmd", baseUrl, ArrayOfDPersonBenefits.class, restTemplate);
+    public GetRequestsBenefitsCmd(String baseUrl, RestTemplate restTemplate) {
+        super("GetBenefitsCmd", baseUrl, ArrayOfDPersonRequestBenefits.class, restTemplate);
     }
 
     @Override
@@ -34,7 +31,7 @@ public class GetBenefitsCmd extends AbstractGetEdboCommand<ArrayOfDPersonBenefit
 
     @Override
     protected String getApiUri() {
-        return "/api/persons/benefits";
+        return "/api/persons/requests/benefits";
     }
 
     public void setActualDate(String actualDate) {

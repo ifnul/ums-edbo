@@ -73,17 +73,17 @@ public class PersonController extends BaseController {
     }
 
     @RequestMapping(value = "/documents/types")
-    public ArrayOfDPersonDocumentTypes personRequestDocumentTypes(@RequestParam("SessionGUID") String sessionGUID,
-                                                                               @RequestParam("ActualDate") String actualDate,
-                                                                               @RequestParam("Id_Language") int languageId) {
+    public ArrayOfDPersonDocumentTypes personRequestDocumentTypes(@RequestParam(value = "SessionGUID",required = true) String sessionGUID,
+                                                                  @RequestParam(value = "ActualDate", required = true) String actualDate,
+                                                                  @RequestParam(value = "Id_Language", required = true) int languageId) {
         return personService.getDocumentTypes(sessionGUID, actualDate, languageId);
     }
 
     @RequestMapping(value = "/benefits")
-    public ArrayOfDPersonBenefits getPersonBenefits(@RequestParam("SessionGUID") String sessionGUID,
-                                                    @RequestParam("ActualDate") String actualDate,
-                                                    @RequestParam("Id_Language") int languageId,
-                                                    @RequestParam("Id_PersonRequest") int personId){
+    public ArrayOfDPersonBenefits getPersonBenefits(@RequestParam(value = "SessionGUID", required = true) String sessionGUID,
+                                                    @RequestParam(value = "ActualDate", required = true) String actualDate,
+                                                    @RequestParam(value = "Id_Language", required = true) int languageId,
+                                                    @RequestParam(value = "Id_PersonRequest", required = false, defaultValue = "0") int personId){
         return personService.getBenefits(sessionGUID, actualDate, languageId, personId);
     }
 
