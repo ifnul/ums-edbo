@@ -10,10 +10,11 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Objects;
+import java.util.Optional;
 
 import static java.util.stream.Collectors.joining;
 
-public abstract class AbstractGetEdboCommand<T> extends HystrixCommand<T> {
+public abstract class AbstractGetEdboCommand<T> extends HystrixCommand<Optional<T>> {
 
     private Class<T> clz;
     private RestTemplate restTemplate;
@@ -45,7 +46,7 @@ public abstract class AbstractGetEdboCommand<T> extends HystrixCommand<T> {
     }
 
     @Override
-    protected T run() throws Exception {
+    protected Optional<T> run() throws Exception {
         final Multimap<String, String> paramsMap = getParams();
         String params = paramsMap.keySet().stream()
                 .map(key -> {
@@ -59,7 +60,7 @@ public abstract class AbstractGetEdboCommand<T> extends HystrixCommand<T> {
 
         HttpEntity<T> entity = new HttpEntity<>(getHeaders());
 
-        return restTemplate.exchange(url, HttpMethod.GET, entity, clz).getBody();
+        return Optional.ofNullable(restTemplate.exchange(url, HttpMethod.GET, entity, clz).getBody());
     }
 
     protected void put(Multimap<String, String> params, String paramName, String paramValue) {
